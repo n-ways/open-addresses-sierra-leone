@@ -1,0 +1,259 @@
+{
+ "areas": 5184,
+ "fccAreas": 134,
+ "compounds": 1359282,
+ "names": 3706,
+ "repeatedNames": 590,
+ "areasSharingAName": 2068,
+ "namesByDigits": {
+  "3": 2945,
+  "4": 720,
+  "5": 41
+ },
+ "areasByDigits": {
+  "3": 3387,
+  "4": 1569,
+  "5": 228
+ },
+ "compoundsByDigits": {
+  "3": 346381,
+  "4": 788449,
+  "5": 224452
+ },
+ "plateNames": {
+  "byRule": {
+   "as-is": 4890,
+   "council": 156,
+   "cleaned": 115,
+   "distinctive": 23
+  },
+  "needsCouncilChoice": 156,
+  "stillOverLimit": 42,
+  "compoundsWithProvisionalName": 84311,
+  "aliases": 208,
+  "droppedAliases": 0,
+  "officialOver12": 235
+ },
+ "largestRanges": [
+  {
+   "name": "Kpetema",
+   "areas": 7,
+   "compounds": 11008,
+   "digits": 5
+  },
+  {
+   "name": "Makeni",
+   "areas": 2,
+   "compounds": 10648,
+   "digits": 5
+  },
+  {
+   "name": "Koidu",
+   "areas": 3,
+   "compounds": 8514,
+   "digits": 5
+  },
+  {
+   "name": "New London",
+   "areas": 8,
+   "compounds": 8361,
+   "digits": 5
+  },
+  {
+   "name": "Baoma",
+   "areas": 24,
+   "compounds": 7807,
+   "digits": 5
+  },
+  {
+   "name": "Kambia",
+   "areas": 8,
+   "compounds": 6741,
+   "digits": 5
+  },
+  {
+   "name": "Kenema",
+   "areas": 7,
+   "compounds": 6073,
+   "digits": 5
+  },
+  {
+   "name": "Makama",
+   "areas": 3,
+   "compounds": 5620,
+   "digits": 5
+  },
+  {
+   "name": "Manjama",
+   "areas": 11,
+   "compounds": 5372,
+   "digits": 5
+  },
+  {
+   "name": "Moyamba",
+   "areas": 5,
+   "compounds": 5313,
+   "digits": 5
+  },
+  {
+   "name": "Madina",
+   "areas": 28,
+   "compounds": 5029,
+   "digits": 5
+  },
+  {
+   "name": "Kamadu",
+   "areas": 5,
+   "compounds": 4895,
+   "digits": 5
+  }
+ ],
+ "mostAreas": [
+  {
+   "name": "Madina",
+   "areas": 28,
+   "compounds": 5029,
+   "digits": 5
+  },
+  {
+   "name": "Baoma",
+   "areas": 24,
+   "compounds": 7807,
+   "digits": 5
+  },
+  {
+   "name": "Nyandehun",
+   "areas": 23,
+   "compounds": 4167,
+   "digits": 5
+  },
+  {
+   "name": "Sembehun",
+   "areas": 23,
+   "compounds": 3670,
+   "digits": 5
+  },
+  {
+   "name": "Taninahun",
+   "areas": 21,
+   "compounds": 3262,
+   "digits": 4
+  },
+  {
+   "name": "Petifu",
+   "areas": 17,
+   "compounds": 2523,
+   "digits": 4
+  },
+  {
+   "name": "Vaama",
+   "areas": 16,
+   "compounds": 1863,
+   "digits": 4
+  },
+  {
+   "name": "Periwahun",
+   "areas": 15,
+   "compounds": 1028,
+   "digits": 4
+  },
+  {
+   "name": "Bandajuma",
+   "areas": 14,
+   "compounds": 4796,
+   "digits": 5
+  },
+  {
+   "name": "Bendu",
+   "areas": 14,
+   "compounds": 3727,
+   "digits": 4
+  },
+  {
+   "name": "Giehun",
+   "areas": 14,
+   "compounds": 2934,
+   "digits": 4
+  },
+  {
+   "name": "Blama",
+   "areas": 13,
+   "compounds": 2580,
+   "digits": 4
+  }
+ ],
+ "biggestAreas": [
+  {
+   "name": "Makeni",
+   "label": "Bombali",
+   "compounds": 10639,
+   "digits": 5
+  },
+  {
+   "name": "Kpetema",
+   "label": "Kenema",
+   "compounds": 10295,
+   "digits": 5
+  },
+  {
+   "name": "Koidu",
+   "label": "Kono",
+   "compounds": 8369,
+   "digits": 5
+  },
+  {
+   "name": "Port Loko",
+   "label": "Port Loko",
+   "compounds": 7154,
+   "digits": 5
+  },
+  {
+   "name": "Ida",
+   "label": "Kenema",
+   "compounds": 7124,
+   "digits": 5
+  },
+  {
+   "name": "Robani",
+   "label": "Bombali",
+   "compounds": 6928,
+   "digits": 5
+  },
+  {
+   "name": "Kwelo",
+   "label": "Kono",
+   "compounds": 6631,
+   "digits": 5
+  },
+  {
+   "name": "Kenema",
+   "label": "Kenema",
+   "compounds": 5650,
+   "digits": 5
+  },
+  {
+   "name": "Makama",
+   "label": "Bombali",
+   "compounds": 5413,
+   "digits": 5
+  },
+  {
+   "name": "Kinse",
+   "label": "Kono",
+   "compounds": 5392,
+   "digits": 5
+  },
+  {
+   "name": "Lunsar",
+   "label": "Port Loko",
+   "compounds": 5263,
+   "digits": 5
+  },
+  {
+   "name": "Tokeh",
+   "label": "Western Area Rural",
+   "compounds": 4753,
+   "digits": 5
+  }
+ ]
+}

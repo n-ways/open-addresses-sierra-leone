@@ -1,0 +1,2831 @@
+openapi: "3.1.0"
+info:
+  title: "N-Ways Addressing for Sierra Leone: registry API"
+  version: "1.0"
+  description: "Serves the published registry of N-Ways codes for Sierra Leone and, on the deployment designated as the country's issuer, issues new codes by the national rules. Every example is a real response from a server holding the published registry. Errors share one shape (Error). Credit every use: \"N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)\"."
+  license:
+    name: "Apache-2.0 (code); ODbL-1.0 (data)"
+    identifier: "Apache-2.0"
+  contact:
+    name: "N-WAYS LIMITED"
+    email: "hello@nways.ng"
+    url: "https://nways.ng"
+servers:
+  - url: "/"
+    description: "This deployment"
+paths:
+  "/v1/health":
+    get:
+      operationId: "health"
+      summary: "Health and the registry in service"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Health"
+              examples:
+                health:
+                  summary: "Health"
+                  value:
+                    status: "ok"
+                    country: "SL"
+                    codes: 1359282
+                    exported: "2026-10-20T15:54:15Z"
+                    issuing: true
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+  "/v1/info":
+    get:
+      operationId: "info"
+      summary: "Country, counts, towns, licences and credit"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Info"
+              examples:
+                country-counts-and-licences:
+                  summary: "Country, counts and licences"
+                  value:
+                    country: "SL"
+                    name: "Sierra Leone"
+                    spec: "1.0"
+                    engine: "internal/addressing/sl (SPEC v1.0)"
+                    exported: "2026-10-20T15:54:15Z"
+                    codes: 1359282
+                    byStatus:
+                      provisional: 1359282
+                    zones: 13
+                    areas: 5184
+                    names: 3706
+                    aliases: 208
+                    forms:
+                      remembered: "Moyamba 15727"
+                      written: "Moyamba 157 27"
+                      machine: "SL-03663-15727"
+                      spot: "5H68+3V Moyamba"
+                      official: "FQQ6+9G Freetown"
+                    towns:
+                      - "Alikalia"
+                      - "Bafodia"
+                      - "Bendugu"
+                      - "Bo"
+                      - "Bonthe"
+                      - "Daru"
+                      - "Falaba"
+                      - "Freetown"
+                      - "Kabala"
+                      - "Kailahun"
+                      - "Kainkordu"
+                      - "Kamakwie"
+                      - "Kamaron"
+                      - "Kambia"
+                      - "Kenema"
+                      - "Koidu"
+                      - "Lungi"
+                      - "Lunsar"
+                      - "Magburaka"
+                      - "Makeni"
+                      - "Masingbi"
+                      - "Mattru Jong"
+                      - "Mile 91"
+                      - "Moyamba"
+                      - "Port Loko"
+                      - "Pujehun"
+                      - "Sainya"
+                      - "Shenge"
+                      - "Sullima"
+                      - "Waterloo"
+                      - "Zimmi"
+                    licences:
+                      data: "ODbL-1.0"
+                      code: "Apache-2.0"
+                      documents: "CC-BY-4.0"
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                    issuing: true
+                    issuePerDay: 50
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+  "/v1/codes/{machine}":
+    get:
+      operationId: "getCode"
+      summary: "The card of a code"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Card"
+              examples:
+                a-code-by-its-machine-form:
+                  summary: "A code by its machine form"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-15727"
+                    remembered: "Moyamba 15727"
+                    written: "Moyamba 157 27"
+                    spoken: "Moyamba, 157 27"
+                    check: 0
+                    number: 15727
+                    status: "provisional"
+                    issued: "bulk"
+                    issuedAt: "2026-10-20T13:03:17Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 157 27 · Moyamba District"
+                    entrance:
+                      lat: 8.1602399
+                      lng: -12.4327947
+                      kind: "centre"
+                    spot:
+                      full: "6CW95H68+3V"
+                      short: "5H68+3V Moyamba"
+                      precise: "6CW95H68+3VW"
+                      town: "Moyamba"
+                    building:
+                      class: "unknown"
+                      use: "residential"
+                      kind: "building"
+                      structures: 1
+                      floorAreaM2: 888.7
+                      rule: "single"
+                      estate: null
+                    outline: null
+                    record:
+                      machine: "SL-03663-15727"
+                      home: "Moyamba 15727"
+                      written: "Moyamba 157 27"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "15727"
+                      check: "0"
+                      status: "provisional"
+                      issued: "bulk"
+                      issued_at: "2026-10-20T13:03:17Z"
+                      entrance_lat: "8.1602399"
+                      entrance_lng: "-12.4327947"
+                      entrance_kind: "centre"
+                      plus_code: "5H68+3V Moyamba"
+                      fcc_address: ""
+                      class: "unknown"
+                      use: "residential"
+                      kind: "building"
+                      structures: "1"
+                      floor_area_m2: "888.7"
+                      rule: "single"
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+        "404":
+          description: "A number of the area that is not issued"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-a-number-of-the-area-that-is-not-issued:
+                  summary: "Error: a number of the area that is not issued"
+                  value:
+                    error:
+                      code: "code_not_found"
+                      message: "No compound has SL-03663-15728 yet (the number is in a block of Moyamba, Moyamba District)."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "422":
+          description: "The check digit does not match"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-the-check-digit-does-not-match:
+                  summary: "Error: the check digit does not match"
+                  value:
+                    error:
+                      code: "check_mismatch"
+                      message: "The check digit does not match: a digit is wrong or two are swapped."
+      security: []
+      parameters:
+        - name: "machine"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+          example: "SL-03663-15727"
+    patch:
+      operationId: "patch"
+      summary: "Confirm, retire or move the entrance of a code"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Card"
+              examples:
+                confirm-a-code:
+                  summary: "Confirm a code"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-17328"
+                    remembered: "Moyamba 17328"
+                    written: "Moyamba 173 28"
+                    spoken: "Moyamba, 173 28"
+                    check: 2
+                    number: 17328
+                    status: "confirmed"
+                    issued: "on-demand"
+                    issuedAt: "2026-10-21T13:39:23Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 173 28 · Moyamba District"
+                    entrance:
+                      lat: 8.1652
+                      lng: -12.43
+                      kind: "centre"
+                    spot:
+                      full: "6CW95H8C+32"
+                      short: "5H8C+32 Moyamba"
+                      precise: "6CW95H8C+32J"
+                      town: "Moyamba"
+                    building:
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: 0
+                      floorAreaM2: 0.0
+                      rule: null
+                      estate: null
+                    outline: null
+                    record:
+                      machine: "SL-03663-17328"
+                      home: "Moyamba 17328"
+                      written: "Moyamba 173 28"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "17328"
+                      check: "2"
+                      status: "confirmed"
+                      issued: "on-demand"
+                      issued_at: "2026-10-21T13:39:23Z"
+                      entrance_lat: "8.1652000"
+                      entrance_lng: "-12.4300000"
+                      entrance_kind: "centre"
+                      plus_code: "5H8C+32 Moyamba"
+                      fcc_address: ""
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: "0"
+                      floor_area_m2: "0.0"
+                      rule: ""
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                move-the-entrance-to-the-gate:
+                  summary: "Move the entrance to the gate"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-17328"
+                    remembered: "Moyamba 17328"
+                    written: "Moyamba 173 28"
+                    spoken: "Moyamba, 173 28"
+                    check: 2
+                    number: 17328
+                    status: "confirmed"
+                    issued: "on-demand"
+                    issuedAt: "2026-10-21T13:39:23Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 173 28 · Moyamba District"
+                    entrance:
+                      lat: 8.16525
+                      lng: -12.43002
+                      kind: "gate"
+                    spot:
+                      full: "6CW95H89+4X"
+                      short: "5H89+4X Moyamba"
+                      precise: "6CW95H89+4X5"
+                      town: "Moyamba"
+                    building:
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: 0
+                      floorAreaM2: 0.0
+                      rule: null
+                      estate: null
+                    outline: null
+                    record:
+                      machine: "SL-03663-17328"
+                      home: "Moyamba 17328"
+                      written: "Moyamba 173 28"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "17328"
+                      check: "2"
+                      status: "confirmed"
+                      issued: "on-demand"
+                      issued_at: "2026-10-21T13:39:23Z"
+                      entrance_lat: "8.1652500"
+                      entrance_lng: "-12.4300200"
+                      entrance_kind: "gate"
+                      plus_code: "5H89+4X Moyamba"
+                      fcc_address: ""
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: "0"
+                      floor_area_m2: "0.0"
+                      rule: ""
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+        "400":
+          description: "Unknown status"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-unknown-status:
+                  summary: "Error: unknown status"
+                  value:
+                    error:
+                      code: "bad_status"
+                      message: "status is provisional, confirmed or retired."
+        "401":
+          description: "No key"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-key:
+                  summary: "Error: no key"
+                  value:
+                    error:
+                      code: "unauthorized"
+                      message: "A valid issuing key is needed: Authorization: Bearer <key>."
+        "403":
+          description: "A read-only server"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-a-read-only-server:
+                  summary: "Error: a read-only server"
+                  value:
+                    error:
+                      code: "read_only"
+                      message: "This server is read-only. Only the issuer designated for the country issues codes (see server/README.md, \"One issuer per country\")."
+        "404":
+          description: "No such code"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-such-code:
+                  summary: "Error: no such code"
+                  value:
+                    error:
+                      code: "code_not_found"
+                      message: "There is no code SL-03663-15728."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "409":
+          description: "A retired code"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-a-retired-code:
+                  summary: "Error: a retired code"
+                  value:
+                    error:
+                      code: "code_retired"
+                      message: "Moyamba 17160 is retired; a retired code never changes and its number is never reused."
+        "422":
+          description: "Entrance more than 80 m away"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-entrance-more-than-80-m-away:
+                  summary: "Error: entrance more than 80 m away"
+                  value:
+                    error:
+                      code: "too_far"
+                      message: "The new entrance is more than 80 m from Moyamba 17328."
+                error-wrong-check-digit:
+                  summary: "Error: wrong check digit"
+                  value:
+                    error:
+                      code: "check_mismatch"
+                      message: "The check digit does not match: a digit is wrong or two are swapped."
+      security:
+        - issuingKey: []
+      parameters:
+        - name: "machine"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+          example: "SL-03663-15727"
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              "$ref": "#/components/schemas/PatchRequest"
+            examples:
+              confirm-a-code:
+                summary: "Confirm a code"
+                value:
+                  status: "confirmed"
+              move-the-entrance-to-the-gate:
+                summary: "Move the entrance to the gate"
+                value:
+                  entrance:
+                    lat: 8.16525
+                    lng: -12.43002
+  "/v1/find":
+    get:
+      operationId: "find"
+      summary: "Find a code from a remembered, written, machine or official form, or a Plus Code"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Found"
+              examples:
+                remembered-form-as-people-say-it:
+                  summary: "Remembered form, as people say it"
+                  value:
+                    query: "moyamba 157 27"
+                    kind: "remembered"
+                    codes:
+                      - country: "SL"
+                        machine: "SL-03663-15727"
+                        remembered: "Moyamba 15727"
+                        written: "Moyamba 157 27"
+                        spoken: "Moyamba, 157 27"
+                        check: 0
+                        number: 15727
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:03:17Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03663"
+                          plateName: "Moyamba"
+                          officialName: "Moyamba"
+                          nameProvisional: false
+                          district: "Moyamba"
+                          placeLine: "Moyamba District"
+                          place: "town"
+                          fccArea: false
+                          nameKey: "moyamba"
+                          nameId: 2674
+                          zone: "6CW9"
+                        zone:
+                          key: "6CW9"
+                          name: "Port Loko"
+                        placeLine: "Moyamba District"
+                        fullLine: "Moyamba 157 27 · Moyamba District"
+                        entrance:
+                          lat: 8.1602399
+                          lng: -12.4327947
+                          kind: "centre"
+                        spot:
+                          full: "6CW95H68+3V"
+                          short: "5H68+3V Moyamba"
+                          precise: "6CW95H68+3VW"
+                          town: "Moyamba"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 888.7
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03663-15727"
+                          home: "Moyamba 15727"
+                          written: "Moyamba 157 27"
+                          zone: "03663"
+                          official_name: "Moyamba"
+                          district: "Moyamba"
+                          number: "15727"
+                          check: "0"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:03:17Z"
+                          entrance_lat: "8.1602399"
+                          entrance_lng: "-12.4327947"
+                          entrance_kind: "centre"
+                          plus_code: "5H68+3V Moyamba"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "888.7"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                official-address-in-freetown-the-property-s-plus-code:
+                  summary: "Official address in Freetown (the property's Plus Code)"
+                  value:
+                    query: "FQQ6+9G Freetown"
+                    kind: "official"
+                    point:
+                      lat: 8.4884375
+                      lng: -13.2386875
+                      plusCode: "6CW8FQQ6+9G"
+                    codes:
+                      - country: "SL"
+                        machine: "SL-00623-2301"
+                        remembered: "Connaught 2301"
+                        written: "Connaught 23 01"
+                        spoken: "Connaught, 23 01"
+                        check: 8
+                        number: 2301
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:02:38Z"
+                        officialAddress: "FQQ6+9G Freetown"
+                        coverage: "official"
+                        area:
+                          id: "00623"
+                          plateName: "Connaught"
+                          officialName: "Connaught Hospital Community"
+                          nameProvisional: false
+                          district: "Western Area Urban"
+                          placeLine: "Freetown"
+                          place: "neighbourhood"
+                          fccArea: true
+                          nameKey: "connaught"
+                          nameId: 418
+                          zone: "6CW8"
+                        zone:
+                          key: "6CW8"
+                          name: "Western Area Urban"
+                        placeLine: "Freetown"
+                        fullLine: "Connaught 23 01 · Freetown"
+                        entrance:
+                          lat: 8.4884654
+                          lng: -13.2387389
+                          kind: "centre"
+                        spot:
+                          full: "6CW8FQQ6+9G"
+                          short: "FQQ6+9G Freetown"
+                          precise: "6CW8FQQ6+9GJ"
+                          town: "Freetown"
+                        building:
+                          class: "health"
+                          use: "health"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 194.0
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-00623-2301"
+                          home: "Connaught 2301"
+                          written: "Connaught 23 01"
+                          zone: "00623"
+                          official_name: "Connaught Hospital Community"
+                          district: "Western Area Urban"
+                          number: "2301"
+                          check: "8"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:02:38Z"
+                          entrance_lat: "8.4884654"
+                          entrance_lng: "-13.2387389"
+                          entrance_kind: "centre"
+                          plus_code: "FQQ6+9G Freetown"
+                          fcc_address: "FQQ6+9G Freetown"
+                          class: "health"
+                          use: "health"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "194.0"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                        distanceM: 6.4
+                any-plus-code-the-compound-nearest-its-centre:
+                  summary: "Any Plus Code: the compound nearest its centre"
+                  value:
+                    query: "5H68+3V Moyamba"
+                    kind: "spot"
+                    point:
+                      lat: 8.160187500000001
+                      lng: -12.432812499999999
+                      plusCode: "6CW95H68+3V"
+                    codes:
+                      - country: "SL"
+                        machine: "SL-03663-15727"
+                        remembered: "Moyamba 15727"
+                        written: "Moyamba 157 27"
+                        spoken: "Moyamba, 157 27"
+                        check: 0
+                        number: 15727
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:03:17Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03663"
+                          plateName: "Moyamba"
+                          officialName: "Moyamba"
+                          nameProvisional: false
+                          district: "Moyamba"
+                          placeLine: "Moyamba District"
+                          place: "town"
+                          fccArea: false
+                          nameKey: "moyamba"
+                          nameId: 2674
+                          zone: "6CW9"
+                        zone:
+                          key: "6CW9"
+                          name: "Port Loko"
+                        placeLine: "Moyamba District"
+                        fullLine: "Moyamba 157 27 · Moyamba District"
+                        entrance:
+                          lat: 8.1602399
+                          lng: -12.4327947
+                          kind: "centre"
+                        spot:
+                          full: "6CW95H68+3V"
+                          short: "5H68+3V Moyamba"
+                          precise: "6CW95H68+3VW"
+                          town: "Moyamba"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 888.7
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03663-15727"
+                          home: "Moyamba 15727"
+                          written: "Moyamba 157 27"
+                          zone: "03663"
+                          official_name: "Moyamba"
+                          district: "Moyamba"
+                          number: "15727"
+                          check: "0"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:03:17Z"
+                          entrance_lat: "8.1602399"
+                          entrance_lng: "-12.4327947"
+                          entrance_kind: "centre"
+                          plus_code: "5H68+3V Moyamba"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "888.7"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                        distanceM: 6.1
+        "400":
+          description: "Nothing to find"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-nothing-to-find:
+                  summary: "Error: nothing to find"
+                  value:
+                    error:
+                      code: "missing_q"
+                      message: "Give the code to find in q, for example ?q=Moyamba 157 27."
+        "404":
+          description: "Unknown name"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-unknown-name:
+                  summary: "Error: unknown name"
+                  value:
+                    error:
+                      code: "code_not_found"
+                      message: "No compound in Sierra Leone has the code Nowhereville 1001 (no area of Sierra Leone is called 'Nowhereville'). Check the place name and the number on the plate."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "422":
+          description: "Wrong check digit"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-wrong-check-digit:
+                  summary: "Error: wrong check digit"
+                  value:
+                    error:
+                      code: "check_mismatch"
+                      message: "The check digit does not match: a digit is wrong or two are swapped."
+      security: []
+      parameters:
+        - name: "q"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+          example: "Moyamba 157 27"
+  "/v1/at":
+    get:
+      operationId: "at"
+      summary: "The compound at a point"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/At"
+              examples:
+                a-point-on-a-compound:
+                  summary: "A point on a compound"
+                  value:
+                    status: "found"
+                    distanceM: 7
+                    code:
+                      country: "SL"
+                      machine: "SL-00623-2301"
+                      remembered: "Connaught 2301"
+                      written: "Connaught 23 01"
+                      spoken: "Connaught, 23 01"
+                      check: 8
+                      number: 2301
+                      status: "provisional"
+                      issued: "bulk"
+                      issuedAt: "2026-10-20T13:02:38Z"
+                      officialAddress: "FQQ6+9G Freetown"
+                      coverage: "official"
+                      area:
+                        id: "00623"
+                        plateName: "Connaught"
+                        officialName: "Connaught Hospital Community"
+                        nameProvisional: false
+                        district: "Western Area Urban"
+                        placeLine: "Freetown"
+                        place: "neighbourhood"
+                        fccArea: true
+                        nameKey: "connaught"
+                        nameId: 418
+                        zone: "6CW8"
+                      zone:
+                        key: "6CW8"
+                        name: "Western Area Urban"
+                      placeLine: "Freetown"
+                      fullLine: "Connaught 23 01 · Freetown"
+                      entrance:
+                        lat: 8.4884654
+                        lng: -13.2387389
+                        kind: "centre"
+                      spot:
+                        full: "6CW8FQQ6+9G"
+                        short: "FQQ6+9G Freetown"
+                        precise: "6CW8FQQ6+9GJ"
+                        town: "Freetown"
+                      building:
+                        class: "health"
+                        use: "health"
+                        kind: "building"
+                        structures: 1
+                        floorAreaM2: 194.0
+                        rule: "single"
+                        estate: null
+                      outline: null
+                      record:
+                        machine: "SL-00623-2301"
+                        home: "Connaught 2301"
+                        written: "Connaught 23 01"
+                        zone: "00623"
+                        official_name: "Connaught Hospital Community"
+                        district: "Western Area Urban"
+                        number: "2301"
+                        check: "8"
+                        status: "provisional"
+                        issued: "bulk"
+                        issued_at: "2026-10-20T13:02:38Z"
+                        entrance_lat: "8.4884654"
+                        entrance_lng: "-13.2387389"
+                        entrance_kind: "centre"
+                        plus_code: "FQQ6+9G Freetown"
+                        fcc_address: "FQQ6+9G Freetown"
+                        class: "health"
+                        use: "health"
+                        kind: "building"
+                        structures: "1"
+                        floor_area_m2: "194.0"
+                        rule: "single"
+                        estate: ""
+                      credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                      creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                    area:
+                      id: "01885"
+                      plateName: "Kingtom"
+                      officialName: "Kingtom"
+                      nameProvisional: false
+                      district: "Western Area Urban"
+                      placeLine: "Freetown"
+                      place: "suburb"
+                      fccArea: true
+                      nameKey: "kingtom"
+                      nameId: 1310
+                      zone: "6CW8"
+                a-point-with-no-compound:
+                  summary: "A point with no compound"
+                  value:
+                    status: "none"
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    spot:
+                      full: "6CW95H8C+32"
+                      short: "5H8C+32 Moyamba"
+                      precise: "6CW95H8C+32J"
+                      town: "Moyamba"
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "422":
+          description: "Outside the country"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-outside-the-country:
+                  summary: "Error: outside the country"
+                  value:
+                    error:
+                      code: "outside_country"
+                      message: "That point is outside Sierra Leone."
+      security: []
+      parameters:
+        - name: "lat"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: 8.48842
+        - name: "lng"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: -13.23869
+  "/v1/near":
+    get:
+      operationId: "near"
+      summary: "Codes near a point"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Near"
+              examples:
+                codes-near-a-point:
+                  summary: "Codes near a point"
+                  value:
+                    point:
+                      lat: 8.1602399
+                      lng: -12.4327947
+                    radiusM: 60.0
+                    count: 2
+                    total: 9
+                    codes:
+                      - country: "SL"
+                        machine: "SL-03663-15727"
+                        remembered: "Moyamba 15727"
+                        written: "Moyamba 157 27"
+                        spoken: "Moyamba, 157 27"
+                        check: 0
+                        number: 15727
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:03:17Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03663"
+                          plateName: "Moyamba"
+                          officialName: "Moyamba"
+                          nameProvisional: false
+                          district: "Moyamba"
+                          placeLine: "Moyamba District"
+                          place: "town"
+                          fccArea: false
+                          nameKey: "moyamba"
+                          nameId: 2674
+                          zone: "6CW9"
+                        zone:
+                          key: "6CW9"
+                          name: "Port Loko"
+                        placeLine: "Moyamba District"
+                        fullLine: "Moyamba 157 27 · Moyamba District"
+                        entrance:
+                          lat: 8.1602399
+                          lng: -12.4327947
+                          kind: "centre"
+                        spot:
+                          full: "6CW95H68+3V"
+                          short: "5H68+3V Moyamba"
+                          precise: "6CW95H68+3VW"
+                          town: "Moyamba"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 888.7
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03663-15727"
+                          home: "Moyamba 15727"
+                          written: "Moyamba 157 27"
+                          zone: "03663"
+                          official_name: "Moyamba"
+                          district: "Moyamba"
+                          number: "15727"
+                          check: "0"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:03:17Z"
+                          entrance_lat: "8.1602399"
+                          entrance_lng: "-12.4327947"
+                          entrance_kind: "centre"
+                          plus_code: "5H68+3V Moyamba"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "888.7"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                        distanceM: 0.0
+                      - country: "SL"
+                        machine: "SL-03663-15703"
+                        remembered: "Moyamba 15703"
+                        written: "Moyamba 157 03"
+                        spoken: "Moyamba, 157 03"
+                        check: 0
+                        number: 15703
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:03:17Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03663"
+                          plateName: "Moyamba"
+                          officialName: "Moyamba"
+                          nameProvisional: false
+                          district: "Moyamba"
+                          placeLine: "Moyamba District"
+                          place: "town"
+                          fccArea: false
+                          nameKey: "moyamba"
+                          nameId: 2674
+                          zone: "6CW9"
+                        zone:
+                          key: "6CW9"
+                          name: "Port Loko"
+                        placeLine: "Moyamba District"
+                        fullLine: "Moyamba 157 03 · Moyamba District"
+                        entrance:
+                          lat: 8.1599408
+                          lng: -12.4325222
+                          kind: "centre"
+                        spot:
+                          full: "6CW95H58+XX"
+                          short: "5H58+XX Moyamba"
+                          precise: "6CW95H58+XXH"
+                          town: "Moyamba"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 12.7
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03663-15703"
+                          home: "Moyamba 15703"
+                          written: "Moyamba 157 03"
+                          zone: "03663"
+                          official_name: "Moyamba"
+                          district: "Moyamba"
+                          number: "15703"
+                          check: "0"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:03:17Z"
+                          entrance_lat: "8.1599408"
+                          entrance_lng: "-12.4325222"
+                          entrance_kind: "centre"
+                          plus_code: "5H58+XX Moyamba"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "12.7"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                        distanceM: 44.8
+        "400":
+          description: "Radius too large"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-radius-too-large:
+                  summary: "Error: radius too large"
+                  value:
+                    error:
+                      code: "bad_radius"
+                      message: "radius is in metres, more than 0 and at most 500."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "lat"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: 8.48842
+        - name: "lng"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: -13.23869
+        - name: "radius"
+          in: "query"
+          schema:
+            type: "number"
+            maximum: 500
+            default: 100
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            minimum: 1
+  "/v1/verify":
+    get:
+      operationId: "verify"
+      summary: "Validate a machine code"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Verify"
+              examples:
+                an-issued-code:
+                  summary: "An issued code"
+                  value:
+                    code: "SL-03663-15727"
+                    syntax: true
+                    valid: true
+                    issued: true
+                    machine: "SL-03663-15727"
+                    check: 0
+                    area: "03663"
+                    status: "provisional"
+                    remembered: "Moyamba 15727"
+                a-wrong-check-digit:
+                  summary: "A wrong check digit"
+                  value:
+                    code: "SL-03663-15727·4"
+                    syntax: true
+                    valid: false
+                    issued: false
+                    machine: "SL-03663-15727"
+                    check: 0
+                    area: "03663"
+                    checkGiven: 4
+                    reason: "the check digit does not match: a digit is wrong or two are swapped"
+                a-number-in-no-block-of-the-area:
+                  summary: "A number in no block of the area"
+                  value:
+                    code: "SL-03663-99999"
+                    syntax: true
+                    valid: false
+                    issued: false
+                    reason: "the number 99999 is not in a block of area 03663"
+        "400":
+          description: "No code given"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-code-given:
+                  summary: "Error: no code given"
+                  value:
+                    error:
+                      code: "missing_code"
+                      message: "Give the machine code in code, for example ?code=SL-03663-15727."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "code"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+          example: "SL-03663-15727"
+  "/v1/spot":
+    get:
+      operationId: "spot"
+      summary: "The Plus Code of a point"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SpotPoint"
+              examples:
+                the-plus-code-of-a-point:
+                  summary: "The Plus Code of a point"
+                  value:
+                    lat: 8.48842
+                    lng: -13.23869
+                    full: "6CW8FQQ6+9G"
+                    short: "FQQ6+9G Freetown"
+                    precise: "6CW8FQQ6+9G7"
+                    town: "Freetown"
+                    inCountry: true
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "lat"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: 8.48842
+        - name: "lng"
+          in: "query"
+          required: true
+          schema:
+            type: "number"
+          example: -13.23869
+  "/v1/spot/decode":
+    get:
+      operationId: "spotDecode"
+      summary: "The point of a Plus Code"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SpotDecoded"
+              examples:
+                a-short-plus-code-with-its-town:
+                  summary: "A short Plus Code with its town"
+                  value:
+                    code: "FQR7+HX Freetown"
+                    full: "6CW8FQR7+HX"
+                    lat: 8.491437499999998
+                    lng: -13.2350625
+                    bbox:
+                      - -13.235125
+                      - 8.491374999999998
+                      - -13.235
+                      - 8.491499999999998
+                    inCountry: true
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "422":
+          description: "A short code without its town"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-a-short-code-without-its-town:
+                  summary: "Error: a short code without its town"
+                  value:
+                    error:
+                      code: "bad_spot"
+                      message: "A short Plus Code needs its town, like FQQ6+9G Freetown."
+      security: []
+      parameters:
+        - name: "code"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+          example: "SL-03663-15727"
+  "/v1/zones":
+    get:
+      operationId: "zones"
+      summary: "Every zone"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Zones"
+              examples:
+                every-zone:
+                  summary: "Every zone"
+                  value:
+                    zones:
+                      - key: "6CRC"
+                        name: "Pujehun"
+                        districts:
+                          - "Pujehun"
+                        bbox:
+                          - -12.0
+                          - 6.0
+                          - -11.0
+                          - 7.0
+                        areas: 7
+                        codes: 1074
+                      - key: "6CV8"
+                        name: "Bonthe"
+                        districts:
+                          - "Bonthe"
+                        bbox:
+                          - -14.0
+                          - 7.0
+                          - -13.0
+                          - 8.0
+                        areas: 1
+                        codes: 125
+                      - key: "6CV9"
+                        name: "Bonthe"
+                        districts:
+                          - "Bonthe"
+                          - "Moyamba"
+                          - "Bo"
+                          - "Sierra Leone"
+                        bbox:
+                          - -13.0
+                          - 7.0
+                          - -12.0
+                          - 8.0
+                        areas: 368
+                        codes: 66647
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+  "/v1/zones/{key}":
+    get:
+      operationId: "zone"
+      summary: "One zone with its areas"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Zone"
+              examples:
+                one-zone-with-its-areas:
+                  summary: "One zone with its areas"
+                  value:
+                    key: "6CV8"
+                    name: "Bonthe"
+                    districts:
+                      - "Bonthe"
+                    bbox:
+                      - -14.0
+                      - 7.0
+                      - -13.0
+                      - 8.0
+                    areas: 1
+                    codes: 125
+                    areaList:
+                      - id: "03002"
+                        plateName: "Mania"
+                        officialName: "Mania"
+                        nameProvisional: false
+                        district: "Bonthe"
+                        placeLine: "Bonthe District"
+                        place: "village"
+                        fccArea: false
+                        nameKey: "mania"
+                        nameId: 2135
+                        zone: "6CV8"
+        "404":
+          description: "No such zone"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-such-zone:
+                  summary: "Error: no such zone"
+                  value:
+                    error:
+                      code: "zone_not_found"
+                      message: "There is no zone 6CZZ. GET /v1/zones lists them."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "key"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+          example: "6CV8"
+  "/v1/zones/{key}/codes":
+    get:
+      operationId: "zoneCodes"
+      summary: "The codes of a zone, a page at a time"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/ZoneCodes"
+              examples:
+                codes-of-a-zone-one-page:
+                  summary: "Codes of a zone, one page"
+                  value:
+                    zone: "6CV8"
+                    count: 1
+                    next: "SL-03002-1001"
+                    codes:
+                      - country: "SL"
+                        machine: "SL-03002-1001"
+                        remembered: "Mania 1001"
+                        written: "Mania 10 01"
+                        spoken: "Mania, 10 01"
+                        check: 2
+                        number: 1001
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:02:09Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03002"
+                          plateName: "Mania"
+                          officialName: "Mania"
+                          nameProvisional: false
+                          district: "Bonthe"
+                          placeLine: "Bonthe District"
+                          place: "village"
+                          fccArea: false
+                          nameKey: "mania"
+                          nameId: 2135
+                          zone: "6CV8"
+                        zone:
+                          key: "6CV8"
+                          name: "Bonthe"
+                        placeLine: "Bonthe District"
+                        fullLine: "Mania 10 01 · Bonthe District"
+                        entrance:
+                          lat: 7.6259445
+                          lng: -13.0496583
+                          kind: "centre"
+                        spot:
+                          full: "6CV8JXG2+94"
+                          short: "JXG2+94 Shenge"
+                          precise: "6CV8JXG2+94G"
+                          town: "Shenge"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 20.3
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03002-1001"
+                          home: "Mania 1001"
+                          written: "Mania 10 01"
+                          zone: "03002"
+                          official_name: "Mania"
+                          district: "Bonthe"
+                          number: "1001"
+                          check: "2"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:02:09Z"
+                          entrance_lat: "7.6259445"
+                          entrance_lng: "-13.0496583"
+                          entrance_kind: "centre"
+                          plus_code: "JXG2+94 Shenge"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "20.3"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "key"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+          example: "6CV8"
+        - name: "after"
+          in: "query"
+          schema:
+            type: "string"
+          description: "The `next` value of the previous page."
+        - name: "limit"
+          in: "query"
+          schema:
+            type: "integer"
+            minimum: 1
+  "/v1/areas/{id}":
+    get:
+      operationId: "area"
+      summary: "One area with its blocks and name record"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AreaFull"
+              examples:
+                one-area:
+                  summary: "One area"
+                  value:
+                    id: "03663"
+                    plateName: "Moyamba"
+                    officialName: "Moyamba"
+                    nameProvisional: false
+                    district: "Moyamba"
+                    placeLine: "Moyamba District"
+                    place: "town"
+                    fccArea: false
+                    nameKey: "moyamba"
+                    nameId: 2674
+                    zone: "6CW9"
+                    seed:
+                      id: "osm:node/496344427"
+                      lat: 8.1593455
+                      lng: -12.4313893
+                      tier: "primary"
+                    blocks:
+                      - lo: 12000
+                        hi: 20999
+                        digits: 5
+                        size: 9000
+                    codes: 4313
+                    byStatus:
+                      provisional: 4313
+                    name:
+                      key: "moyamba"
+                      id: 2674
+                      digits: 5
+                      spare:
+                        lo: 24000
+                        hi: 99999
+                      areas:
+                        - "03662"
+                        - "03663"
+                        - "03664"
+                        - "03665"
+                        - "03666"
+        "404":
+          description: "No such area"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-such-area:
+                  summary: "Error: no such area"
+                  value:
+                    error:
+                      code: "area_not_found"
+                      message: "There is no area 09999. Areas are numbered 00001 to 05184."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+          example: "03663"
+  "/v1/areas":
+    get:
+      operationId: "areas"
+      summary: "The areas of a plate or official name"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Areas"
+              examples:
+                areas-by-name-official-name-through-its-alias:
+                  summary: "Areas by name (official name, through its alias)"
+                  value:
+                    query: "Gbangbatoke Junction"
+                    nameKey: "gbangbatoke"
+                    areas:
+                      - id: "01031"
+                        plateName: "Gbangbatoke"
+                        officialName: "Gbangbatoke Junction"
+                        nameProvisional: false
+                        district: "Moyamba"
+                        placeLine: "Moyamba District"
+                        place: "village"
+                        fccArea: false
+                        nameKey: "gbangbatoke"
+                        nameId: 717
+                        zone: "6CW9"
+                        seed:
+                          id: "osm:node/2041747142"
+                          lat: 8.0004697
+                          lng: -12.4807578
+                          tier: "primary"
+                        blocks:
+                          - lo: 1000
+                            hi: 2099
+                            digits: 4
+                            size: 1100
+                        codes: 511
+                        byStatus:
+                          provisional: 511
+                        name:
+                          key: "gbangbatoke"
+                          id: 717
+                          digits: 4
+                          spare:
+                            lo: 2100
+                            hi: 9999
+                          areas:
+                            - "01031"
+        "404":
+          description: "No such name"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-such-name:
+                  summary: "Error: no such name"
+                  value:
+                    error:
+                      code: "area_not_found"
+                      message: "No area of Sierra Leone is called 'Nowhereville'."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+      security: []
+      parameters:
+        - name: "name"
+          in: "query"
+          required: true
+          schema:
+            type: "string"
+          example: "Gbangbatoke Junction"
+  "/v1/codes":
+    post:
+      operationId: "issue"
+      summary: "Issue a code for a new compound or another door"
+      responses:
+        "201":
+          description: "Created"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Card"
+              examples:
+                a-new-compound:
+                  summary: "A new compound"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-17328"
+                    remembered: "Moyamba 17328"
+                    written: "Moyamba 173 28"
+                    spoken: "Moyamba, 173 28"
+                    check: 2
+                    number: 17328
+                    status: "provisional"
+                    issued: "on-demand"
+                    issuedAt: "2026-10-21T13:39:23Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 173 28 · Moyamba District"
+                    entrance:
+                      lat: 8.1652
+                      lng: -12.43
+                      kind: "centre"
+                    spot:
+                      full: "6CW95H8C+32"
+                      short: "5H8C+32 Moyamba"
+                      precise: "6CW95H8C+32J"
+                      town: "Moyamba"
+                    building:
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: 0
+                      floorAreaM2: 0.0
+                      rule: null
+                      estate: null
+                    outline: null
+                    record:
+                      machine: "SL-03663-17328"
+                      home: "Moyamba 17328"
+                      written: "Moyamba 173 28"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "17328"
+                      check: "2"
+                      status: "provisional"
+                      issued: "on-demand"
+                      issued_at: "2026-10-21T13:39:23Z"
+                      entrance_lat: "8.1652000"
+                      entrance_lng: "-12.4300000"
+                      entrance_kind: "centre"
+                      plus_code: "5H8C+32 Moyamba"
+                      fcc_address: ""
+                      class: ""
+                      use: "residential"
+                      kind: "building"
+                      structures: "0"
+                      floor_area_m2: "0.0"
+                      rule: ""
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                another-door-of-a-compound:
+                  summary: "Another door of a compound"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-15726"
+                    remembered: "Moyamba 15726"
+                    written: "Moyamba 157 26"
+                    spoken: "Moyamba, 157 26"
+                    check: 2
+                    number: 15726
+                    status: "provisional"
+                    issued: "on-demand"
+                    issuedAt: "2026-10-21T13:39:23Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 157 26 · Moyamba District"
+                    entrance:
+                      lat: 8.1603299
+                      lng: -12.4327947
+                      kind: "door"
+                    spot:
+                      full: "6CW95H68+4V"
+                      short: "5H68+4V Moyamba"
+                      precise: "6CW95H68+4VP"
+                      town: "Moyamba"
+                    building:
+                      class: ""
+                      use: "residential"
+                      kind: "door"
+                      structures: 0
+                      floorAreaM2: 0.0
+                      rule: null
+                      estate: null
+                    outline: null
+                    record:
+                      machine: "SL-03663-15726"
+                      home: "Moyamba 15726"
+                      written: "Moyamba 157 26"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "15726"
+                      check: "2"
+                      status: "provisional"
+                      issued: "on-demand"
+                      issued_at: "2026-10-21T13:39:23Z"
+                      entrance_lat: "8.1603299"
+                      entrance_lng: "-12.4327947"
+                      entrance_kind: "door"
+                      plus_code: "5H68+4V Moyamba"
+                      fcc_address: ""
+                      class: ""
+                      use: "residential"
+                      kind: "door"
+                      structures: "0"
+                      floor_area_m2: "0.0"
+                      rule: ""
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+                a-new-compound-with-its-outline:
+                  summary: "A new compound with its outline"
+                  value:
+                    country: "SL"
+                    machine: "SL-03663-17160"
+                    remembered: "Moyamba 17160"
+                    written: "Moyamba 171 60"
+                    spoken: "Moyamba, 171 60"
+                    check: 3
+                    number: 17160
+                    status: "provisional"
+                    issued: "on-demand"
+                    issuedAt: "2026-10-21T13:39:23Z"
+                    officialAddress: null
+                    coverage: null
+                    area:
+                      id: "03663"
+                      plateName: "Moyamba"
+                      officialName: "Moyamba"
+                      nameProvisional: false
+                      district: "Moyamba"
+                      placeLine: "Moyamba District"
+                      place: "town"
+                      fccArea: false
+                      nameKey: "moyamba"
+                      nameId: 2674
+                      zone: "6CW9"
+                    zone:
+                      key: "6CW9"
+                      name: "Port Loko"
+                    placeLine: "Moyamba District"
+                    fullLine: "Moyamba 171 60 · Moyamba District"
+                    entrance:
+                      lat: 8.16585
+                      lng: -12.42975
+                      kind: "centre"
+                    spot:
+                      full: "6CW95H8C+84"
+                      short: "5H8C+84 Moyamba"
+                      precise: "6CW95H8C+84R"
+                      town: "Moyamba"
+                    building:
+                      class: "residential.house"
+                      use: "residential"
+                      kind: "building"
+                      structures: 1
+                      floorAreaM2: 121.8
+                      rule: null
+                      estate: null
+                    outline:
+                      - - -12.4298
+                        - 8.1658
+                      - - -12.4297
+                        - 8.1658
+                      - - -12.4297
+                        - 8.1659
+                      - - -12.4298
+                        - 8.1659
+                    record:
+                      machine: "SL-03663-17160"
+                      home: "Moyamba 17160"
+                      written: "Moyamba 171 60"
+                      zone: "03663"
+                      official_name: "Moyamba"
+                      district: "Moyamba"
+                      number: "17160"
+                      check: "3"
+                      status: "provisional"
+                      issued: "on-demand"
+                      issued_at: "2026-10-21T13:39:23Z"
+                      entrance_lat: "8.1658500"
+                      entrance_lng: "-12.4297500"
+                      entrance_kind: "centre"
+                      plus_code: "5H8C+84 Moyamba"
+                      fcc_address: ""
+                      class: "residential.house"
+                      use: "residential"
+                      kind: "building"
+                      structures: "1"
+                      floor_area_m2: "121.8"
+                      rule: ""
+                      estate: ""
+                    credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                    creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+        "400":
+          description: "A body that is not JSON"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-not-json:
+                  summary: "Error: a body that is not JSON"
+                  value:
+                    error:
+                      code: "bad_json"
+                      message: "The body is not valid JSON."
+        "401":
+          description: "No key"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-key:
+                  summary: "Error: no key"
+                  value:
+                    error:
+                      code: "unauthorized"
+                      message: "A valid issuing key is needed: Authorization: Bearer <key>."
+        "403":
+          description: "A read-only server"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-a-read-only-server:
+                  summary: "Error: a read-only server"
+                  value:
+                    error:
+                      code: "read_only"
+                      message: "This server is read-only. Only the issuer designated for the country issues codes (see server/README.md, \"One issuer per country\")."
+        "404":
+          description: "No such code to add a door to"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-no-such-code:
+                  summary: "Error: no such code to add a door to"
+                  value:
+                    error:
+                      code: "code_not_found"
+                      message: "There is no code SL-03663-15728 to add a door to."
+        "405":
+          "$ref": "#/components/responses/MethodNotAllowed"
+        "409":
+          description: "The compound already has a code"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-the-compound-already-has-a-code:
+                  summary: "Error: the compound already has a code"
+                  value:
+                    error:
+                      code: "code_exists"
+                      message: "This compound already has its code: Moyamba 15727."
+                      card:
+                        country: "SL"
+                        machine: "SL-03663-15727"
+                        remembered: "Moyamba 15727"
+                        written: "Moyamba 157 27"
+                        spoken: "Moyamba, 157 27"
+                        check: 0
+                        number: 15727
+                        status: "provisional"
+                        issued: "bulk"
+                        issuedAt: "2026-10-20T13:03:17Z"
+                        officialAddress: null
+                        coverage: null
+                        area:
+                          id: "03663"
+                          plateName: "Moyamba"
+                          officialName: "Moyamba"
+                          nameProvisional: false
+                          district: "Moyamba"
+                          placeLine: "Moyamba District"
+                          place: "town"
+                          fccArea: false
+                          nameKey: "moyamba"
+                          nameId: 2674
+                          zone: "6CW9"
+                        zone:
+                          key: "6CW9"
+                          name: "Port Loko"
+                        placeLine: "Moyamba District"
+                        fullLine: "Moyamba 157 27 · Moyamba District"
+                        entrance:
+                          lat: 8.1602399
+                          lng: -12.4327947
+                          kind: "centre"
+                        spot:
+                          full: "6CW95H68+3V"
+                          short: "5H68+3V Moyamba"
+                          precise: "6CW95H68+3VW"
+                          town: "Moyamba"
+                        building:
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: 1
+                          floorAreaM2: 888.7
+                          rule: "single"
+                          estate: null
+                        outline: null
+                        record:
+                          machine: "SL-03663-15727"
+                          home: "Moyamba 15727"
+                          written: "Moyamba 157 27"
+                          zone: "03663"
+                          official_name: "Moyamba"
+                          district: "Moyamba"
+                          number: "15727"
+                          check: "0"
+                          status: "provisional"
+                          issued: "bulk"
+                          issued_at: "2026-10-20T13:03:17Z"
+                          entrance_lat: "8.1602399"
+                          entrance_lng: "-12.4327947"
+                          entrance_kind: "centre"
+                          plus_code: "5H68+3V Moyamba"
+                          fcc_address: ""
+                          class: "unknown"
+                          use: "residential"
+                          kind: "building"
+                          structures: "1"
+                          floor_area_m2: "888.7"
+                          rule: "single"
+                          estate: ""
+                        credit: "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)"
+                        creditUrl: "https://github.com/n-ways/open-addresses-sierra-leone"
+        "413":
+          description: "A body over 64 KB"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-too-large:
+                  summary: "Error: a body over 64 KB"
+                  value:
+                    error:
+                      code: "too_large"
+                      message: "The body is over 64 KB."
+        "422":
+          description: "Outline too small, or the point more than 300 m outside the national border"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-outline-too-small:
+                  summary: "Error: outline too small"
+                  value:
+                    error:
+                      code: "bad_outline"
+                      message: "That outline is 1 m², but a compound's is between 6 m² and 2 ha."
+                error-outside-the-border:
+                  summary: "Error: more than 300 m outside the national border"
+                  value:
+                    error:
+                      code: "outside_country"
+                      message: "That point is outside Sierra Leone, so it cannot have an N-Ways Sierra Leone code."
+        "429":
+          description: "The daily limit of the key"
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Error"
+              examples:
+                error-daily-limit:
+                  summary: "Error: the daily limit of the key"
+                  value:
+                    error:
+                      code: "issue_limit"
+                      message: "This key has issued 50 codes in the last 24 hours, its daily limit. Try again later."
+      security:
+        - issuingKey: []
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              "$ref": "#/components/schemas/IssueRequest"
+            examples:
+              a-new-compound:
+                summary: "A new compound"
+                value:
+                  lat: 8.1652
+                  lng: -12.43
+              another-door-of-a-compound:
+                summary: "Another door of a compound"
+                value:
+                  lat: 8.1603299
+                  lng: -12.4327947
+                  of: "SL-03663-15727"
+              a-new-compound-with-its-outline:
+                summary: "A new compound with its outline"
+                value:
+                  lat: 8.16585
+                  lng: -12.42975
+                  outline:
+                    - - -12.4298
+                      - 8.1658
+                    - - -12.4297
+                      - 8.1658
+                    - - -12.4297
+                      - 8.1659
+                    - - -12.4298
+                      - 8.1659
+components:
+  schemas:
+    Error:
+      type: "object"
+      properties:
+        error:
+          type: "object"
+          properties:
+            code:
+              type: "string"
+              description: "Stable code for programs."
+            message:
+              type: "string"
+              description: "Explanation for people."
+            card:
+              "$ref": "#/components/schemas/Card"
+          required:
+            - "code"
+            - "message"
+      required:
+        - "error"
+    Spot:
+      type: "object"
+      properties:
+        full:
+          type: "string"
+          description: "10-character Plus Code."
+        short:
+          type: "string"
+          description: "Short form with its reference town."
+        precise:
+          type: "string"
+          description: "11-character Plus Code."
+        town:
+          type:
+            - "string"
+            - "null"
+      required:
+        - "full"
+        - "short"
+        - "precise"
+    Area:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          description: "Area index in 5 digits (the `zone` column of the registry rows)."
+          pattern: "^[0-9]{5}$"
+        plateName:
+          type: "string"
+          description: "The name in the code: at most 12 characters and 2 words."
+        officialName:
+          type: "string"
+        nameProvisional:
+          type: "boolean"
+          description: "The council has yet to confirm the plate name."
+        district:
+          type: "string"
+        placeLine:
+          type: "string"
+        place:
+          type: "string"
+        fccArea:
+          type: "boolean"
+        nameKey:
+          type: "string"
+        nameId:
+          type: "integer"
+        zone:
+          type: "string"
+          description: "The zone (registry file) of the area."
+      required:
+        - "id"
+        - "plateName"
+        - "officialName"
+        - "district"
+        - "nameKey"
+        - "nameId"
+        - "zone"
+    AreaFull:
+      allOf:
+        - "$ref": "#/components/schemas/Area"
+        - type: "object"
+          properties:
+            seed:
+              type: "object"
+              properties:
+                id:
+                  type: "string"
+                lat:
+                  type: "number"
+                lng:
+                  type: "number"
+                tier:
+                  type: "string"
+                  enum:
+                    - "primary"
+                    - "secondary"
+            blocks:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  lo:
+                    type: "integer"
+                  hi:
+                    type: "integer"
+                  digits:
+                    type: "integer"
+                  size:
+                    type: "integer"
+            codes:
+              type: "integer"
+            byStatus:
+              type: "object"
+              additionalProperties:
+                type: "integer"
+            name:
+              type: "object"
+              properties:
+                key:
+                  type: "string"
+                id:
+                  type: "integer"
+                digits:
+                  type: "integer"
+                spare:
+                  type: "object"
+                  properties:
+                    lo:
+                      type: "integer"
+                    hi:
+                      type: "integer"
+                areas:
+                  type: "array"
+                  items:
+                    type: "string"
+    Card:
+      type: "object"
+      properties:
+        country:
+          type: "string"
+          const: "SL"
+        machine:
+          type: "string"
+          pattern: "^SL-[0-9]{5}-[0-9]{3,5}$"
+        remembered:
+          type: "string"
+        written:
+          type: "string"
+        spoken:
+          type: "string"
+        check:
+          type: "integer"
+          description: "Damm check digit over the name id and the number; for systems only."
+        number:
+          type: "integer"
+        status:
+          type: "string"
+          enum:
+            - "provisional"
+            - "confirmed"
+            - "retired"
+        issued:
+          type: "string"
+          enum:
+            - "bulk"
+            - "on-demand"
+        issuedAt:
+          type: "string"
+          format: "date-time"
+        officialAddress:
+          type:
+            - "string"
+            - "null"
+          description: "In Freetown City Council's area: the property's Plus Code, the official address."
+        coverage:
+          type:
+            - "string"
+            - "null"
+          enum:
+            - "official"
+            - null
+        area:
+          "$ref": "#/components/schemas/Area"
+        zone:
+          type: "object"
+          properties:
+            key:
+              type: "string"
+            name:
+              type: "string"
+        placeLine:
+          type: "string"
+        fullLine:
+          type: "string"
+        entrance:
+          type: "object"
+          properties:
+            lat:
+              type: "number"
+            lng:
+              type: "number"
+            kind:
+              type: "string"
+              enum:
+                - "centre"
+                - "door"
+                - "gate"
+        spot:
+          "$ref": "#/components/schemas/Spot"
+        building:
+          type: "object"
+          properties:
+            class:
+              type: "string"
+            use:
+              type: "string"
+            kind:
+              type: "string"
+            structures:
+              type: "integer"
+            floorAreaM2:
+              type: "number"
+            rule:
+              type:
+                - "string"
+                - "null"
+            estate:
+              type:
+                - "string"
+                - "null"
+        outline:
+          type:
+            - "array"
+            - "null"
+          items:
+            type: "array"
+            items:
+              type: "number"
+            minItems: 2
+            maxItems: 2
+        record:
+          type: "object"
+          properties:
+            machine:
+              type: "string"
+            home:
+              type: "string"
+            written:
+              type: "string"
+            zone:
+              type: "string"
+            official_name:
+              type: "string"
+            district:
+              type: "string"
+            number:
+              type: "string"
+            check:
+              type: "string"
+            status:
+              type: "string"
+            issued:
+              type: "string"
+            issued_at:
+              type: "string"
+            entrance_lat:
+              type: "string"
+            entrance_lng:
+              type: "string"
+            entrance_kind:
+              type: "string"
+            plus_code:
+              type: "string"
+            fcc_address:
+              type: "string"
+            class:
+              type: "string"
+            use:
+              type: "string"
+            kind:
+              type: "string"
+            structures:
+              type: "string"
+            floor_area_m2:
+              type: "string"
+            rule:
+              type: "string"
+            estate:
+              type: "string"
+          required:
+            - "machine"
+            - "home"
+            - "written"
+            - "zone"
+            - "official_name"
+            - "district"
+            - "number"
+            - "check"
+            - "status"
+            - "issued"
+            - "issued_at"
+            - "entrance_lat"
+            - "entrance_lng"
+            - "entrance_kind"
+            - "plus_code"
+            - "fcc_address"
+            - "class"
+            - "use"
+            - "kind"
+            - "structures"
+            - "floor_area_m2"
+            - "rule"
+            - "estate"
+          description: "Every column of the published registry row, as published."
+        credit:
+          type: "string"
+        creditUrl:
+          type: "string"
+        distanceM:
+          type: "number"
+        structure:
+          type: "integer"
+        unit:
+          type: "integer"
+        newBlock:
+          type: "object"
+          properties:
+            lo:
+              type: "integer"
+            hi:
+              type: "integer"
+      required:
+        - "country"
+        - "machine"
+        - "remembered"
+        - "written"
+        - "check"
+        - "status"
+        - "area"
+        - "zone"
+        - "entrance"
+        - "spot"
+        - "record"
+        - "credit"
+    Health:
+      type: "object"
+      properties:
+        status:
+          type: "string"
+        country:
+          type: "string"
+        codes:
+          type: "integer"
+        exported:
+          type: "string"
+          format: "date-time"
+        issuing:
+          type: "boolean"
+    Info:
+      type: "object"
+      properties:
+        country:
+          type: "string"
+        name:
+          type: "string"
+        spec:
+          type: "string"
+        engine:
+          type: "string"
+        exported:
+          type: "string"
+        codes:
+          type: "integer"
+        byStatus:
+          type: "object"
+          additionalProperties:
+            type: "integer"
+        zones:
+          type: "integer"
+        areas:
+          type: "integer"
+        names:
+          type: "integer"
+        aliases:
+          type: "integer"
+        forms:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        towns:
+          type: "array"
+          items:
+            type: "string"
+        licences:
+          type: "object"
+          additionalProperties:
+            type: "string"
+        credit:
+          type: "string"
+        creditUrl:
+          type: "string"
+        issuing:
+          type: "boolean"
+        issuePerDay:
+          type: "integer"
+    Found:
+      type: "object"
+      properties:
+        query:
+          type: "string"
+        kind:
+          type: "string"
+          enum:
+            - "remembered"
+            - "machine"
+            - "official"
+            - "spot"
+        point:
+          type: "object"
+          properties:
+            lat:
+              type: "number"
+            lng:
+              type: "number"
+            plusCode:
+              type: "string"
+        codes:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/Card"
+      required:
+        - "query"
+        - "kind"
+        - "codes"
+    At:
+      type: "object"
+      properties:
+        status:
+          type: "string"
+          enum:
+            - "found"
+            - "none"
+        distanceM:
+          type: "integer"
+        code:
+          "$ref": "#/components/schemas/Card"
+        area:
+          "$ref": "#/components/schemas/Area"
+        spot:
+          "$ref": "#/components/schemas/Spot"
+      required:
+        - "status"
+        - "area"
+    Near:
+      type: "object"
+      properties:
+        point:
+          type: "object"
+          properties:
+            lat:
+              type: "number"
+            lng:
+              type: "number"
+        radiusM:
+          type: "number"
+        count:
+          type: "integer"
+        total:
+          type: "integer"
+        codes:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/Card"
+    Verify:
+      type: "object"
+      properties:
+        code:
+          type: "string"
+        syntax:
+          type: "boolean"
+        valid:
+          type: "boolean"
+        issued:
+          type: "boolean"
+        machine:
+          type: "string"
+        check:
+          type: "integer"
+        checkGiven:
+          type: "integer"
+        area:
+          type: "string"
+        status:
+          type: "string"
+        remembered:
+          type: "string"
+        reason:
+          type: "string"
+      required:
+        - "code"
+        - "syntax"
+        - "valid"
+        - "issued"
+    SpotPoint:
+      allOf:
+        - "$ref": "#/components/schemas/Spot"
+        - type: "object"
+          properties:
+            lat:
+              type: "number"
+            lng:
+              type: "number"
+            inCountry:
+              type: "boolean"
+    SpotDecoded:
+      type: "object"
+      properties:
+        code:
+          type: "string"
+        full:
+          type: "string"
+        lat:
+          type: "number"
+        lng:
+          type: "number"
+        bbox:
+          type: "array"
+          items:
+            type: "number"
+        inCountry:
+          type: "boolean"
+    Zone:
+      type: "object"
+      properties:
+        key:
+          type: "string"
+        name:
+          type: "string"
+        districts:
+          type: "array"
+          items:
+            type: "string"
+        bbox:
+          type: "array"
+          items:
+            type: "number"
+        areas:
+          type: "integer"
+        codes:
+          type: "integer"
+        areaList:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/Area"
+    Zones:
+      type: "object"
+      properties:
+        zones:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/Zone"
+    ZoneCodes:
+      type: "object"
+      properties:
+        zone:
+          type: "string"
+        count:
+          type: "integer"
+        next:
+          type:
+            - "string"
+            - "null"
+        codes:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/Card"
+    Areas:
+      type: "object"
+      properties:
+        query:
+          type: "string"
+        nameKey:
+          type:
+            - "string"
+            - "null"
+        areas:
+          type: "array"
+          items:
+            "$ref": "#/components/schemas/AreaFull"
+    IssueRequest:
+      type: "object"
+      properties:
+        lat:
+          type: "number"
+        lng:
+          type: "number"
+        outline:
+          type: "array"
+          description: "The building, [lng, lat] points (6 m² to 2 ha)."
+          items:
+            type: "array"
+            items:
+              type: "number"
+            minItems: 2
+            maxItems: 2
+        of:
+          type: "string"
+          description: "Machine code of the compound this point is another door of (within 80 m)."
+      required:
+        - "lat"
+        - "lng"
+    PatchRequest:
+      type: "object"
+      properties:
+        status:
+          type: "string"
+          enum:
+            - "provisional"
+            - "confirmed"
+            - "retired"
+        entrance:
+          type: "object"
+          properties:
+            lat:
+              type: "number"
+            lng:
+              type: "number"
+          required:
+            - "lat"
+            - "lng"
+  securitySchemes:
+    issuingKey:
+      type: "http"
+      scheme: "bearer"
+      description: "A key from ISSUE_KEYS. A server without keys is read-only (403 read_only)."
+  responses:
+    MethodNotAllowed:
+      description: "A method this path does not take (405); an unknown path answers 404 not_found in the same shape."
+      content:
+        "application/json":
+          schema:
+            "$ref": "#/components/schemas/Error"
+          example:
+            error:
+              code: "method_not_allowed"
+              message: "GET is not allowed here; use POST."

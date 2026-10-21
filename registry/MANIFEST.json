@@ -1,0 +1,39 @@
+{
+  "byTile": {
+    "6CRC": 1074,
+    "6CV8": 125,
+    "6CV9": 66647,
+    "6CVC": 217309,
+    "6CVF": 25105,
+    "6CW8": 428624,
+    "6CW9": 195953,
+    "6CWC": 141637,
+    "6CWF": 133149,
+    "6CX8": 4468,
+    "6CX9": 72128,
+    "6CXC": 62888,
+    "6CXF": 10175
+  },
+  "codes": 1359282,
+  "country": "SL",
+  "credit": "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)",
+  "engine": "internal/addressing/sl (SPEC v1.0)",
+  "exported": "2026-10-20T15:54:15Z",
+  "licence": "ODbL 1.0 (LICENSE-DATA)",
+  "sha256": {
+    "6CRC.csv": "0e67ad0ad42a5010546570d2178bf2c39c15c49e4e4063c17f55262286100a42",
+    "6CV8.csv": "69fd27de098965cd935abb991fe82b2d70a4bc4275eb0ac4dcea2ff88fa4adca",
+    "6CV9.csv": "1405b7abaf6e8f55ab7d7074feaf14c126fb8e80edee1cc96f55e57a257df2be",
+    "6CVC.csv": "091199f9c488d4f90761c8a856281bf9f145713bbf1d92ec190f9b3d9cf881d9",
+    "6CVF.csv": "72a745eaa0e1dc8db28a06fd8002775975628f50ec7c51c4ba9429f1ad51a5dd",
+    "6CW8.csv": "b825984373dce40eeaae05655fd4a8997b9bae4bccc1fd641fd812cc6448c874",
+    "6CW9.csv": "70cf3a9eb4846dcba99f822514dffad5324994c347ca18df459a9f10b6b9d6b6",
+    "6CWC.csv": "e2871ddedb453096aae054096ea11b59cacbe9c0dbe0bb1222f60908207fbc29",
+    "6CWF.csv": "b15a0d628fcfded1c37ababd3e51c241a797665bb0447d621094eb2e0b5f6aff",
+    "6CX8.csv": "36f9400095c64c5de634481083bbc87730a840be28264f1e69310b54b3d6259d",
+    "6CX9.csv": "804d2fcb10ab49c5d387a3eb5037b8462e078ed5d800cf02c5196990469a38b0",
+    "6CXC.csv": "cfe07a818f43e03f39ec57226393e02baecfc90f2331ea6e8dc5804d76292877",
+    "6CXF.csv": "c78b61dda516933ab7b60d823bc60dca4d03305438d467bc1b9b2c4b4a98b2b7",
+    "areas.csv": "007834db83ba934229432e5f15206d509d30c3df5bfbef9ec16742522737c4ea"
+  }
+}

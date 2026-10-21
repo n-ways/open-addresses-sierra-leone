@@ -1,0 +1,55 @@
+{
+ "codes": 1359282,
+ "uniqueness": {
+  "duplicateMachine": 0,
+  "duplicateRemembered": 0
+ },
+ "decode": {
+  "decoded": 1359282,
+  "failed": 0
+ },
+ "lengths": {
+  "median": 12,
+  "p90": 16,
+  "max": 28,
+  "atMost16": 1281167,
+  "histogram": {
+   "6": 172,
+   "7": 3213,
+   "8": 25065,
+   "9": 89783,
+   "10": 176811,
+   "11": 265037,
+   "12": 252724,
+   "13": 174734,
+   "14": 106070,
+   "15": 100719,
+   "16": 86839,
+   "17": 43284,
+   "18": 8548,
+   "19": 8160,
+   "20": 4279,
+   "21": 9399,
+   "23": 2822,
+   "25": 520,
+   "26": 608,
+   "28": 495
+  }
+ },
+ "digits": {
+  "3": 346381,
+  "4": 788449,
+  "5": 224452
+ },
+ "plusCodeCells": {
+  "cells": 1220299,
+  "compoundsInSharedCells": 259143,
+  "share": 0.1906
+ },
+ "slips": {
+  "crossPlace": 653805,
+  "acceptedNameCheck": 0,
+  "acceptedAreaCheck": 71342
+ },
+ "samplesPerBlock": 40
+}

@@ -1,0 +1,605 @@
+{
+ "note": "Issuance parity cases. Each request is sent in order to a server holding the fixture registry (testdata/registry); the expected values were computed by the national issuer (the N-Ways backend, package internal/addressing/sl) on the same state: the area chosen, the number, the forms, the spot code and any new block. A point outside the national outline is refused. addBlock cases are run on the state after the last request.",
+ "steps": [
+  {
+   "request": {
+    "lat": 7.6263994,
+    "lng": -13.0488959
+   },
+   "expect": {
+    "check": 0,
+    "home": "Mania 1002",
+    "inCountry": true,
+    "machine": "SL-03002-1002",
+    "number": 1002,
+    "ok": true,
+    "spot": "JXG2+HC Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6259349,
+    "lng": -13.0470956
+   },
+   "expect": {
+    "check": 2,
+    "home": "Mania 1076",
+    "inCountry": true,
+    "machine": "SL-03002-1076",
+    "number": 1076,
+    "ok": true,
+    "spot": "JXG3+95 Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6259612,
+    "lng": -13.0492106
+   },
+   "expect": {
+    "check": 4,
+    "home": "Mania 1000",
+    "inCountry": true,
+    "machine": "SL-03002-1000",
+    "number": 1000,
+    "ok": true,
+    "spot": "JXG2+98 Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6254966,
+    "lng": -13.0477246
+   },
+   "expect": {
+    "check": 6,
+    "home": "Mania 1062",
+    "inCountry": true,
+    "machine": "SL-03002-1062",
+    "number": 1062,
+    "ok": true,
+    "spot": "JXG2+5W Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.625671,
+    "lng": -13.0483625
+   },
+   "expect": {
+    "check": 0,
+    "home": "Mania 1028",
+    "inCountry": true,
+    "machine": "SL-03002-1028",
+    "number": 1028,
+    "ok": true,
+    "spot": "JXG2+7M Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6254112,
+    "lng": -13.0479633
+   },
+   "expect": {
+    "check": 9,
+    "home": "Mania 1032",
+    "inCountry": true,
+    "machine": "SL-03002-1032",
+    "number": 1032,
+    "ok": true,
+    "spot": "JXG2+5R Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.625796,
+    "lng": -13.0479215
+   },
+   "expect": {
+    "check": 4,
+    "home": "Mania 1148",
+    "inCountry": true,
+    "machine": "SL-03002-1148",
+    "number": 1148,
+    "ok": true,
+    "spot": "JXG2+8R Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6264779,
+    "lng": -13.0475625
+   },
+   "expect": {
+    "check": 6,
+    "home": "Mania 1102",
+    "inCountry": true,
+    "machine": "SL-03002-1102",
+    "number": 1102,
+    "ok": true,
+    "spot": "JXG2+HX Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6257233,
+    "lng": -13.0480767
+   },
+   "expect": {
+    "check": 8,
+    "home": "Mania 1004",
+    "inCountry": true,
+    "machine": "SL-03002-1004",
+    "number": 1004,
+    "ok": true,
+    "spot": "JXG2+7Q Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6257518,
+    "lng": -13.0484448
+   },
+   "expect": {
+    "check": 1,
+    "home": "Mania 1006",
+    "inCountry": true,
+    "machine": "SL-03002-1006",
+    "number": 1006,
+    "ok": true,
+    "spot": "JXG2+8J Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6257451,
+    "lng": -13.0488804
+   },
+   "expect": {
+    "check": 2,
+    "home": "Mania 1014",
+    "inCountry": true,
+    "machine": "SL-03002-1014",
+    "number": 1014,
+    "ok": true,
+    "spot": "JXG2+7C Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6261948,
+    "lng": -13.0483958
+   },
+   "expect": {
+    "check": 3,
+    "home": "Mania 1160",
+    "inCountry": true,
+    "machine": "SL-03002-1160",
+    "number": 1160,
+    "ok": true,
+    "spot": "JXG2+FJ Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.6260345,
+    "lng": -13.0496583,
+    "of": "SL-03002-1001"
+   },
+   "expect": {
+    "check": 5,
+    "home": "Mania 1008",
+    "inCountry": true,
+    "machine": "SL-03002-1008",
+    "number": 1008,
+    "ok": true,
+    "spot": "JXG2+C4 Shenge",
+    "zone": "03002"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3658745,
+    "lng": -12.0922845
+   },
+   "expect": {
+    "check": 5,
+    "home": "Magboto 154",
+    "inCountry": true,
+    "machine": "SL-02634-154",
+    "number": 154,
+    "ok": true,
+    "spot": "9W85+83 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3662605,
+    "lng": -12.0924619
+   },
+   "expect": {
+    "check": 6,
+    "home": "Magboto 157",
+    "inCountry": true,
+    "machine": "SL-02634-157",
+    "number": 157,
+    "ok": true,
+    "spot": "9W85+G2 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3663004,
+    "lng": -12.0922453
+   },
+   "expect": {
+    "check": 9,
+    "home": "Magboto 155",
+    "inCountry": true,
+    "machine": "SL-02634-155",
+    "number": 155,
+    "ok": true,
+    "spot": "9W85+G4 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3664184,
+    "lng": -12.0930391
+   },
+   "expect": {
+    "check": 4,
+    "home": "Magboto 158",
+    "inCountry": true,
+    "machine": "SL-02634-158",
+    "number": 158,
+    "ok": true,
+    "spot": "9W84+HQ Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3661523,
+    "lng": -12.0923034
+   },
+   "expect": {
+    "check": 8,
+    "home": "Magboto 156",
+    "inCountry": true,
+    "machine": "SL-02634-156",
+    "number": 156,
+    "ok": true,
+    "spot": "9W85+F3 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3659101,
+    "lng": -12.0926149
+   },
+   "expect": {
+    "check": 3,
+    "home": "Magboto 151",
+    "inCountry": true,
+    "machine": "SL-02634-151",
+    "number": 151,
+    "ok": true,
+    "spot": "9W84+9X Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3659146,
+    "lng": -12.0925197
+   },
+   "expect": {
+    "check": 1,
+    "home": "Magboto 152",
+    "inCountry": true,
+    "machine": "SL-02634-152",
+    "number": 152,
+    "ok": true,
+    "spot": "9W84+9X Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.366213,
+    "lng": -12.0920793
+   },
+   "expect": {
+    "check": 0,
+    "home": "Magboto 150",
+    "inCountry": true,
+    "machine": "SL-02634-150",
+    "number": 150,
+    "ok": true,
+    "spot": "9W85+F5 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.365993,
+    "lng": -12.0926425
+   },
+   "expect": {
+    "check": 7,
+    "home": "Magboto 153",
+    "inCountry": true,
+    "machine": "SL-02634-153",
+    "number": 153,
+    "ok": true,
+    "spot": "9W84+9W Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3666892,
+    "lng": -12.0927278
+   },
+   "expect": {
+    "check": 2,
+    "home": "Magboto 159",
+    "inCountry": true,
+    "machine": "SL-02634-159",
+    "number": 159,
+    "ok": true,
+    "spot": "9W84+MW Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3661059,
+    "lng": -12.0926598
+   },
+   "expect": {
+    "check": 0,
+    "home": "Magboto 175",
+    "inCountry": true,
+    "machine": "SL-02634-175",
+    "newBlock": [
+     160,
+     189
+    ],
+    "number": 175,
+    "ok": true,
+    "spot": "9W84+CW Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.3664343,
+    "lng": -12.0919815
+   },
+   "expect": {
+    "check": 3,
+    "home": "Magboto 182",
+    "inCountry": true,
+    "machine": "SL-02634-182",
+    "number": 182,
+    "ok": true,
+    "spot": "9W85+H6 Mile 91",
+    "zone": "02634"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.4956539,
+    "lng": -13.2864113
+   },
+   "expect": {
+    "check": 1,
+    "home": "Aberdeen 14499",
+    "inCountry": true,
+    "machine": "SL-00006-14499",
+    "number": 14499,
+    "ok": true,
+    "spot": "FPW7+7C Freetown",
+    "zone": "00006"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.4960431,
+    "lng": -13.286565
+   },
+   "expect": {
+    "check": 6,
+    "home": "Aberdeen 16749",
+    "inCountry": true,
+    "machine": "SL-00006-16749",
+    "number": 16749,
+    "ok": true,
+    "spot": "FPW7+C9 Freetown",
+    "zone": "00006"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.4955425,
+    "lng": -13.2861028
+   },
+   "expect": {
+    "check": 8,
+    "home": "Aberdeen 17874",
+    "inCountry": true,
+    "machine": "SL-00006-17874",
+    "number": 17874,
+    "ok": true,
+    "spot": "FPW7+6H Freetown",
+    "zone": "00006"
+   }
+  },
+  {
+   "request": {
+    "lat": 9.5892,
+    "lng": -11.5528
+   },
+   "expect": {
+    "check": 4,
+    "home": "Kabala 14499",
+    "inCountry": true,
+    "machine": "SL-01485-14499",
+    "number": 14499,
+    "ok": true,
+    "spot": "HCQW+MV Kabala",
+    "zone": "01485"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.964,
+    "lng": -11.7383
+   },
+   "expect": {
+    "check": 6,
+    "home": "Komende 2399",
+    "inCountry": true,
+    "machine": "SL-01970-2399",
+    "number": 2399,
+    "ok": true,
+    "spot": "X776+JM Bo",
+    "zone": "01970"
+   }
+  },
+  {
+   "request": {
+    "lat": 8.9,
+    "lng": -10.75
+   },
+   "expect": {
+    "check": 2,
+    "home": "Bendu 5049",
+    "inCountry": true,
+    "machine": "SL-00303-5049",
+    "number": 5049,
+    "ok": true,
+    "spot": "W722+22 Koidu",
+    "zone": "00303"
+   }
+  },
+  {
+   "request": {
+    "lat": 7.1,
+    "lng": -11.2
+   },
+   "expect": {
+    "inCountry": false
+   }
+  }
+ ],
+ "addBlock": [
+  {
+   "request": {
+    "zone": "00006",
+    "compounds": 50
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     19000,
+     19999
+    ]
+   }
+  },
+  {
+   "request": {
+    "zone": "00006",
+    "compounds": 40000
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     19000,
+     98999
+    ]
+   }
+  },
+  {
+   "request": {
+    "zone": "00006",
+    "compounds": 45000
+   },
+   "expect": {
+    "ok": false,
+    "block": null
+   }
+  },
+  {
+   "request": {
+    "zone": "02634",
+    "compounds": 5
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     190,
+     199
+    ]
+   }
+  },
+  {
+   "request": {
+    "zone": "02634",
+    "compounds": 400
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     190,
+     989
+    ]
+   }
+  },
+  {
+   "request": {
+    "zone": "03002",
+    "compounds": 126
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     2400,
+     2699
+    ]
+   }
+  },
+  {
+   "request": {
+    "zone": "03002",
+    "compounds": 5000
+   },
+   "expect": {
+    "ok": true,
+    "block": [
+     10000,
+     19999
+    ]
+   }
+  }
+ ]
+}

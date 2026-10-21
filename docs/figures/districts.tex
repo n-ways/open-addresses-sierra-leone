@@ -1,0 +1,27 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\pgfplotstableread{districts.dat}\d
+\begin{axis}[name=left, width=7.6cm, height=9.5cm, xbar stacked, bar width=7pt, xmin=0, xmax=260,
+  ytick=data, yticklabels from table={\d}{district}, y tick label style={font=\scriptsize},
+  ytick pos=left, xtick pos=bottom, major y tick style={draw=none}, enlarge y limits=0.04,
+  xlabel={\T{Footprints (thousands)}{Empreintes (milliers)}},
+  title={\T{(a) Footprints by source}{(a) Empreintes par source}}, title style={font=\small\bfseries, text=ink, yshift=12pt},
+  legend style={at={(0.97,0.03)}, anchor=south east, font=\scriptsize, draw=black!30}, legend cell align=left]
+  \addplot[fill=ink!85, draw=none] table[x=osmK, y=i] {\d};
+  \addplot[fill=sand, draw=none] table[x=mlK, y=i] {\d};
+  \legend{OpenStreetMap, \T{Google and Microsoft}{Google et Microsoft}}
+\end{axis}
+\begin{axis}[at={(left.east)}, anchor=west, xshift=0.5cm, width=6.4cm, height=9.5cm, xbar stacked, bar width=7pt,
+  xmin=0, xmax=100, ytick=data, yticklabels={}, ytick pos=left, xtick pos=bottom, major y tick style={draw=none},
+  enlarge y limits=0.04, xlabel={\T{Share of compounds (\%)}{Part des concessions (\%)}},
+  title={\T{(b) Digits in the number}{(b) Chiffres du numéro}}, title style={font=\small\bfseries, text=ink, yshift=12pt},
+  legend style={at={(0.5,1.01)}, anchor=south, legend columns=3, font=\scriptsize, draw=none}]
+  \addplot[fill=green!55!black, draw=none] table[x=d3, y=i] {\d};
+  \addplot[fill=blue!75, draw=none] table[x=d4, y=i] {\d};
+  \addplot[fill=ink!90!black, draw=none] table[x=d5, y=i] {\d};
+  \legend{3, 4, 5}
+\end{axis}
+\end{tikzpicture}
+\end{document}

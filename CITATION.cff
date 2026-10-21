@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: dataset
+title: "N-Ways Addressing for Sierra Leone: a national compound address register on the Plus Code grid"
+abstract: "An open address register for Sierra Leone: 1,359,282 compound codes, one for every compound, each a community or town name people already use and a short number that is unique in the whole country on its own, with the reference engine, the conformance vectors, a deployable registry server and the research paper describing the model."
+authors:
+  - name: "The N-Ways Addressing Group"
+    affiliation: "N-WAYS LIMITED"
+    email: "hello@nways.ng"
+    website: "https://nways.ng"
+date-released: 2026-10-20
+url: "https://github.com/n-ways/open-addresses-sierra-leone"
+repository-code: "https://github.com/n-ways/open-addresses-sierra-leone"
+license:
+  - Apache-2.0
+  - ODbL-1.0
+  - CC-BY-4.0
+keywords:
+  - addressing
+  - Sierra Leone
+  - Plus Codes
+  - Open Location Code
+  - geocoding
+  - Hilbert curve
+  - Damm check digit
+  - building footprints
+preferred-citation:
+  type: report
+  title: "A code for every compound: a national addressing model for Sierra Leone"
+  authors:
+    - name: "The N-Ways Addressing Group"
+  institution:
+    name: "N-WAYS LIMITED"
+  year: 2026
+  month: 10
+  date-published: 2026-10-21
+  url: "https://github.com/n-ways/open-addresses-sierra-leone/blob/main/docs/paper.md"
+  languages:
+    - en
+    - fr

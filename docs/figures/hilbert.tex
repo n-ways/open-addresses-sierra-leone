@@ -1,0 +1,14 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=7.5cm, height=7.5cm, axis equal image, xmin=0, xmax=8, ymin=0, ymax=8,
+  xtick={0,...,8}, ytick={0,...,8}, grid=major, grid style={blue!25}, xtick pos=bottom, ytick pos=left,
+  xlabel={$x$}, ylabel={$y$}, tick label style={font=\scriptsize}]
+  \addplot[ink, very thick] table[x=cx, y=cy] {hilbert.dat};
+  \addplot[only marks, mark=none, nodes near coords={\pgfplotspointmeta}, point meta=explicit symbolic,
+    every node near coord/.style={font=\tiny, text=green!45!black, anchor=south west, inner sep=0.6pt}]
+    table[x=cx, y=cy, meta=h] {hilbert.dat};
+\end{axis}
+\end{tikzpicture}
+\end{document}

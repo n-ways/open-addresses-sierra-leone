@@ -1,0 +1,19 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\pgfplotsset{set layers}
+\begin{axis}[width=12.5cm, height=6.4cm, ybar, bar width=10pt, ymin=0, ymax=1600,
+  xtick={0,...,12}, xticklabels={1,2--4,5--9,10--19,20--49,50--99,100--199,200--499,500--999,1k--2k,2k--5k,5k--10k,10k--20k},
+  x tick label style={rotate=35, anchor=north east, font=\scriptsize}, axis y line*=left, xtick pos=bottom,
+  ylabel={\T{Areas}{Zones}}, xlabel={\T{Compounds in the area}{Concessions dans la zone}},
+  nodes near coords, every node near coord/.append style={font=\tiny, text=ink}, enlarge x limits=0.05]
+  \addplot[fill=ink!80, draw=none] table[x=bin,y=areas] {area-sizes.dat};
+\end{axis}
+\begin{axis}[width=12.5cm, height=6.4cm, ymin=0, ymax=25, axis y line*=right, axis x line=none,
+  xmin=0, xmax=12, enlarge x limits=0.05, ylabel={\T{Share of all compounds (\%)}{Part des concessions (\%)}},
+  ylabel style={text=green!60!black}, yticklabel style={text=green!60!black}]
+  \addplot[green!60!black, thick, mark=*, mark size=1.6pt] table[x=bin,y=compoundShare] {area-sizes.dat};
+\end{axis}
+\end{tikzpicture}
+\end{document}

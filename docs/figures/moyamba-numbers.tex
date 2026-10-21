@@ -1,0 +1,17 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=11cm, axis equal image, scale only axis=false,
+  xlabel={\T{Longitude}{Longitude}}, ylabel={\T{Latitude}{Latitude}},
+  x tick label style={/pgf/number format/fixed, /pgf/number format/precision=2}, y tick label style={/pgf/number format/fixed, /pgf/number format/precision=2},
+  xtick pos=bottom, ytick pos=left,
+  colormap={nways}{rgb255=(11,79,138) rgb255=(0,114,198) rgb255=(30,181,58) rgb255=(201,179,126) rgb255=(190,90,40)},
+  colorbar, colorbar style={ylabel={\T{Number}{Numéro}}, ytick={12000,14000,16000,18000,20000}, scaled y ticks=false,
+    yticklabel style={/pgf/number format/1000 sep={}}, width=3mm}, point meta min=12000, point meta max=20999]
+  \addplot[scatter, only marks, point meta=explicit, mark=*, mark size=0.75pt, scatter/use mapped color={draw=mapped color, fill=mapped color}]
+    table[x=lng, y=lat, meta=number] {moyamba-numbers.dat};
+  \node[draw=black, circle, inner sep=2.2pt, line width=0.8pt, pin={[pin distance=14mm, pin edge={black,thick}, font=\scriptsize\bfseries, fill=white, draw=black!40, inner sep=1.5pt]-25:Moyamba 15727}] at (axis cs:-12.4327947,8.1602399) {};
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,1651 @@
+{
+ "country": "SL",
+ "tool": "tools/profile_stats.py",
+ "capital": "Western Area Urban (Freetown), geoBoundaries SLE ADM2",
+ "sources": {
+  "osm": 839977,
+  "ml": 789299
+ },
+ "classes": {
+  "national": [
+   {
+    "class": "unknown",
+    "buildings": 1566422,
+    "meanConfidence": 0.0
+   },
+   {
+    "class": "residential.unspecified",
+    "buildings": 30243,
+    "meanConfidence": 0.8
+   },
+   {
+    "class": "ancillary",
+    "buildings": 10801,
+    "meanConfidence": 0.36
+   },
+   {
+    "class": "under_construction",
+    "buildings": 9904,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "residential.hut",
+    "buildings": 6946,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "education",
+    "buildings": 1032,
+    "meanConfidence": 0.83
+   },
+   {
+    "class": "commercial.shop",
+    "buildings": 907,
+    "meanConfidence": 0.79
+   },
+   {
+    "class": "residential.apartment",
+    "buildings": 614,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "religious",
+    "buildings": 570,
+    "meanConfidence": 0.79
+   },
+   {
+    "class": "health",
+    "buildings": 491,
+    "meanConfidence": 0.76
+   },
+   {
+    "class": "hospitality",
+    "buildings": 389,
+    "meanConfidence": 0.76
+   },
+   {
+    "class": "commercial.office",
+    "buildings": 209,
+    "meanConfidence": 0.75
+   },
+   {
+    "class": "commercial.warehouse",
+    "buildings": 154,
+    "meanConfidence": 0.39
+   },
+   {
+    "class": "government",
+    "buildings": 137,
+    "meanConfidence": 0.83
+   },
+   {
+    "class": "industrial.general",
+    "buildings": 124,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "agricultural",
+    "buildings": 99,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "transport",
+    "buildings": 81,
+    "meanConfidence": 0.82
+   },
+   {
+    "class": "ruin",
+    "buildings": 68,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "commercial.market",
+    "buildings": 61,
+    "meanConfidence": 0.82
+   },
+   {
+    "class": "public.culture",
+    "buildings": 21,
+    "meanConfidence": 0.69
+   },
+   {
+    "class": "residential.block_house",
+    "buildings": 3,
+    "meanConfidence": 0.8
+   }
+  ],
+  "capital": [
+   {
+    "class": "unknown",
+    "buildings": 224202,
+    "meanConfidence": 0.0
+   },
+   {
+    "class": "ancillary",
+    "buildings": 7630,
+    "meanConfidence": 0.35
+   },
+   {
+    "class": "under_construction",
+    "buildings": 5620,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "residential.unspecified",
+    "buildings": 3570,
+    "meanConfidence": 0.8
+   },
+   {
+    "class": "commercial.shop",
+    "buildings": 370,
+    "meanConfidence": 0.77
+   },
+   {
+    "class": "residential.apartment",
+    "buildings": 224,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "education",
+    "buildings": 174,
+    "meanConfidence": 0.8
+   },
+   {
+    "class": "hospitality",
+    "buildings": 143,
+    "meanConfidence": 0.72
+   },
+   {
+    "class": "religious",
+    "buildings": 142,
+    "meanConfidence": 0.76
+   },
+   {
+    "class": "commercial.office",
+    "buildings": 109,
+    "meanConfidence": 0.71
+   },
+   {
+    "class": "health",
+    "buildings": 90,
+    "meanConfidence": 0.77
+   },
+   {
+    "class": "government",
+    "buildings": 57,
+    "meanConfidence": 0.82
+   },
+   {
+    "class": "commercial.warehouse",
+    "buildings": 46,
+    "meanConfidence": 0.35
+   },
+   {
+    "class": "industrial.general",
+    "buildings": 30,
+    "meanConfidence": 0.85
+   },
+   {
+    "class": "transport",
+    "buildings": 19,
+    "meanConfidence": 0.82
+   },
+   {
+    "class": "public.culture",
+    "buildings": 17,
+    "meanConfidence": 0.68
+   },
+   {
+    "class": "commercial.market",
+    "buildings": 15,
+    "meanConfidence": 0.83
+   },
+   {
+    "class": "ruin",
+    "buildings": 4,
+    "meanConfidence": 0.85
+   }
+  ]
+ },
+ "footprintM2": {
+  "national": {
+   "buildings": 1629276,
+   "quantiles10_25_50_75_90_99": [
+    15.4,
+    26.9,
+    59.8,
+    107.2,
+    163.3,
+    357.8
+   ],
+   "mean": 80.2,
+   "totalKm2": 130.68
+  },
+  "capital": {
+   "buildings": 242462,
+   "quantiles10_25_50_75_90_99": [
+    10.5,
+    20.0,
+    47.9,
+    103.2,
+    185.7,
+    425.2
+   ],
+   "mean": 80.3,
+   "totalKm2": 19.47
+  },
+  "binsNational": {
+   "a<12": 81668,
+   "b12-30": 378027,
+   "c30-60": 357076,
+   "d60-120": 484416,
+   "e120-250": 275884,
+   "f250-500": 46621,
+   "g500-2000": 5384,
+   "h>=2000": 200
+  },
+  "binsCapital": {
+   "a<12": 30950,
+   "b12-30": 56243,
+   "c30-60": 51478,
+   "d60-120": 54161,
+   "e120-250": 37162,
+   "f250-500": 10944,
+   "g500-2000": 1459,
+   "h>=2000": 65
+  },
+  "medianByClassCapital": {
+   "ancillary": {
+    "median": 4.6,
+    "mean": 4.4
+   },
+   "commercial.market": {
+    "median": 367.9,
+    "mean": 509.6
+   },
+   "commercial.office": {
+    "median": 198.4,
+    "mean": 570.3
+   },
+   "commercial.shop": {
+    "median": 179.8,
+    "mean": 298.0
+   },
+   "commercial.warehouse": {
+    "median": 2690.7,
+    "mean": 3327.7
+   },
+   "education": {
+    "median": 262.3,
+    "mean": 328.4
+   },
+   "government": {
+    "median": 302.6,
+    "mean": 396.8
+   },
+   "health": {
+    "median": 226.7,
+    "mean": 361.5
+   },
+   "hospitality": {
+    "median": 245.6,
+    "mean": 338.9
+   },
+   "industrial.general": {
+    "median": 115.0,
+    "mean": 711.1
+   },
+   "public.culture": {
+    "median": 158.5,
+    "mean": 194.1
+   },
+   "religious": {
+    "median": 253.9,
+    "mean": 388.9
+   },
+   "residential.apartment": {
+    "median": 49.9,
+    "mean": 70.2
+   },
+   "residential.unspecified": {
+    "median": 99.7,
+    "mean": 121.6
+   },
+   "ruin": {
+    "median": 43.2,
+    "mean": 81.4
+   },
+   "transport": {
+    "median": 67.2,
+    "mean": 209.9
+   },
+   "under_construction": {
+    "median": 97.7,
+    "mean": 120.6
+   },
+   "unknown": {
+    "median": 48.1,
+    "mean": 79.1
+   }
+  }
+ },
+ "perimeterMCapital10_50_90": [
+  13.3,
+  29.3,
+  59.5
+ ],
+ "heightSource": {
+  "none": 838854,
+  "ml:h": 789299,
+  "osm:building:levels": 1066,
+  "osm:height": 57
+ },
+ "floorsCapital": {
+  "0": 2,
+  "1": 229734,
+  "2": 12712,
+  "3": 7,
+  "4": 3,
+  "5": 2,
+  "6": 1,
+  "7": 1
+ },
+ "floorAreaCapital": {
+  "totalKm2": 19.96,
+  "median50_90": [
+   50.4,
+   187.9
+  ]
+ },
+ "osmMaterial": {
+  "brick": 191,
+  "concrete": 118,
+  "wood": 67,
+  "metal": 38,
+  "plastic": 4,
+  "tapoline": 2,
+  "cement_block": 1,
+  "stone": 1,
+  "bamboo": 1,
+  "table": 1,
+  "zink": 1
+ },
+ "chiefdoms2016": [
+  {
+   "name": "East III",
+   "buildings": 111069,
+   "openstreetmap": 103710,
+   "areaKm2": 45.3,
+   "digitsIfOneArea": 6
+  },
+  {
+   "name": "Waterloo Rural",
+   "buildings": 110218,
+   "openstreetmap": 44880,
+   "areaKm2": 166.2,
+   "digitsIfOneArea": 6
+  },
+  {
+   "name": "York Rural",
+   "buildings": 65061,
+   "openstreetmap": 19965,
+   "areaKm2": 241.7,
+   "digitsIfOneArea": 6
+  },
+  {
+   "name": "West III",
+   "buildings": 53167,
+   "openstreetmap": 47466,
+   "areaKm2": 20.7,
+   "digitsIfOneArea": 6
+  },
+  {
+   "name": "Bo Town",
+   "buildings": 35817,
+   "openstreetmap": 22158,
+   "areaKm2": 23.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "West II",
+   "buildings": 32485,
+   "openstreetmap": 30559,
+   "areaKm2": 6.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kenema Town",
+   "buildings": 29291,
+   "openstreetmap": 21138,
+   "areaKm2": 22.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kaffu Bullom",
+   "buildings": 28578,
+   "openstreetmap": 15369,
+   "areaKm2": 176.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Koya Rural",
+   "buildings": 28437,
+   "openstreetmap": 10436,
+   "areaKm2": 164.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Mountain Rural",
+   "buildings": 28319,
+   "openstreetmap": 12376,
+   "areaKm2": 38.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Luawa",
+   "buildings": 25904,
+   "openstreetmap": 20171,
+   "areaKm2": 707.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Nongowa",
+   "buildings": 25363,
+   "openstreetmap": 13240,
+   "areaKm2": 626.1,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kakua",
+   "buildings": 23380,
+   "openstreetmap": 9808,
+   "areaKm2": 336.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Koya",
+   "buildings": 23309,
+   "openstreetmap": 7418,
+   "areaKm2": 1478.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Makeni Town",
+   "buildings": 23127,
+   "openstreetmap": 13682,
+   "areaKm2": 16.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Tikonko",
+   "buildings": 21731,
+   "openstreetmap": 9340,
+   "areaKm2": 508.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Magbema",
+   "buildings": 21431,
+   "openstreetmap": 12794,
+   "areaKm2": 333.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Makari Gbanti",
+   "buildings": 21359,
+   "openstreetmap": 6724,
+   "areaKm2": 639.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Koidu Town",
+   "buildings": 21032,
+   "openstreetmap": 16293,
+   "areaKm2": 15.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Yoni",
+   "buildings": 20199,
+   "openstreetmap": 6742,
+   "areaKm2": 1223.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Maforki",
+   "buildings": 19088,
+   "openstreetmap": 8715,
+   "areaKm2": 809.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Lower Bambara",
+   "buildings": 17271,
+   "openstreetmap": 8715,
+   "areaKm2": 689.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sandor",
+   "buildings": 17202,
+   "openstreetmap": 8185,
+   "areaKm2": 1480.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Samu",
+   "buildings": 15652,
+   "openstreetmap": 10562,
+   "areaKm2": 544.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Lokomasama",
+   "buildings": 15262,
+   "openstreetmap": 2535,
+   "areaKm2": 920.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kholifa Rowala",
+   "buildings": 14962,
+   "openstreetmap": 9022,
+   "areaKm2": 451.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Nimikoro",
+   "buildings": 14600,
+   "openstreetmap": 8138,
+   "areaKm2": 572.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Marampa",
+   "buildings": 14051,
+   "openstreetmap": 9296,
+   "areaKm2": 399.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Nieni",
+   "buildings": 13788,
+   "openstreetmap": 5978,
+   "areaKm2": 2273.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Tankoro",
+   "buildings": 12299,
+   "openstreetmap": 8993,
+   "areaKm2": 174.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "East II",
+   "buildings": 11664,
+   "openstreetmap": 11116,
+   "areaKm2": 1.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Central I",
+   "buildings": 11628,
+   "openstreetmap": 11015,
+   "areaKm2": 2.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Jawie",
+   "buildings": 11251,
+   "openstreetmap": 7243,
+   "areaKm2": 359.1,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Njaluahun",
+   "buildings": 10958,
+   "openstreetmap": 6793,
+   "areaKm2": 328.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbense",
+   "buildings": 10880,
+   "openstreetmap": 6799,
+   "areaKm2": 215.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Lower Banta",
+   "buildings": 10735,
+   "openstreetmap": 2762,
+   "areaKm2": 498.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "West I",
+   "buildings": 10534,
+   "openstreetmap": 9914,
+   "areaKm2": 2.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bombali Sebora",
+   "buildings": 10470,
+   "openstreetmap": 3889,
+   "areaKm2": 261.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbonkolenken",
+   "buildings": 10027,
+   "openstreetmap": 1854,
+   "areaKm2": 735.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bumpeh",
+   "buildings": 10014,
+   "openstreetmap": 1437,
+   "areaKm2": 716.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Panga Kabonde",
+   "buildings": 9908,
+   "openstreetmap": 2702,
+   "areaKm2": 498.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Tonko Limba",
+   "buildings": 9632,
+   "openstreetmap": 3992,
+   "areaKm2": 888.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bumpe Ngao",
+   "buildings": 9559,
+   "openstreetmap": 2515,
+   "areaKm2": 944.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Imperri",
+   "buildings": 8867,
+   "openstreetmap": 3673,
+   "areaKm2": 623.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Dama",
+   "buildings": 8749,
+   "openstreetmap": 5999,
+   "areaKm2": 403.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Wara Wara Yagal",
+   "buildings": 8635,
+   "openstreetmap": 4532,
+   "areaKm2": 328.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kaiyamba",
+   "buildings": 8529,
+   "openstreetmap": 5393,
+   "areaKm2": 476.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kagboro",
+   "buildings": 8491,
+   "openstreetmap": 70,
+   "areaKm2": 692.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Tunkia",
+   "buildings": 8462,
+   "openstreetmap": 5809,
+   "areaKm2": 745.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Soa",
+   "buildings": 8305,
+   "openstreetmap": 5016,
+   "areaKm2": 529.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kissi Tongi",
+   "buildings": 8246,
+   "openstreetmap": 5872,
+   "areaKm2": 261.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Neya",
+   "buildings": 8186,
+   "openstreetmap": 4965,
+   "areaKm2": 1441.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sella Limba",
+   "buildings": 8183,
+   "openstreetmap": 2817,
+   "areaKm2": 427.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kori",
+   "buildings": 8130,
+   "openstreetmap": 2146,
+   "areaKm2": 664.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Jong",
+   "buildings": 8086,
+   "openstreetmap": 2880,
+   "areaKm2": 384.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Boama",
+   "buildings": 7923,
+   "openstreetmap": 3917,
+   "areaKm2": 398.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kissi Teng",
+   "buildings": 7873,
+   "openstreetmap": 6102,
+   "areaKm2": 165.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "East I",
+   "buildings": 7724,
+   "openstreetmap": 7026,
+   "areaKm2": 1.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Masimera",
+   "buildings": 7570,
+   "openstreetmap": 942,
+   "areaKm2": 674.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gorama Mende",
+   "buildings": 7543,
+   "openstreetmap": 6183,
+   "areaKm2": 660.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbendembu Ngowa",
+   "buildings": 7531,
+   "openstreetmap": 3050,
+   "areaKm2": 790.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Mongo",
+   "buildings": 7509,
+   "openstreetmap": 4136,
+   "areaKm2": 1703.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Valunia",
+   "buildings": 7426,
+   "openstreetmap": 1360,
+   "areaKm2": 825.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Biriwa",
+   "buildings": 7285,
+   "openstreetmap": 2690,
+   "areaKm2": 889.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Soro Gbema",
+   "buildings": 7279,
+   "openstreetmap": 3201,
+   "areaKm2": 730.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bagruwa",
+   "buildings": 7279,
+   "openstreetmap": 454,
+   "areaKm2": 828.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Small Bo",
+   "buildings": 7279,
+   "openstreetmap": 5272,
+   "areaKm2": 429.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Jaiama Bongor",
+   "buildings": 7079,
+   "openstreetmap": 2758,
+   "areaKm2": 441.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bureh Kasseh Ma",
+   "buildings": 6936,
+   "openstreetmap": 1462,
+   "areaKm2": 418.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Upper Bambara",
+   "buildings": 6792,
+   "openstreetmap": 4934,
+   "areaKm2": 226.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Ribbi",
+   "buildings": 6689,
+   "openstreetmap": 1251,
+   "areaKm2": 640.1,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kalansogoia",
+   "buildings": 6681,
+   "openstreetmap": 3411,
+   "areaKm2": 450.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gaura",
+   "buildings": 6581,
+   "openstreetmap": 4771,
+   "areaKm2": 399.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Makpele",
+   "buildings": 6287,
+   "openstreetmap": 3686,
+   "areaKm2": 403.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Tane",
+   "buildings": 6219,
+   "openstreetmap": 2872,
+   "areaKm2": 446.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kunike",
+   "buildings": 6164,
+   "openstreetmap": 1829,
+   "areaKm2": 801.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Barri",
+   "buildings": 6154,
+   "openstreetmap": 1344,
+   "areaKm2": 490.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Malen",
+   "buildings": 6059,
+   "openstreetmap": 320,
+   "areaKm2": 276.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Mambolo",
+   "buildings": 6040,
+   "openstreetmap": 744,
+   "areaKm2": 230.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sengbe",
+   "buildings": 5977,
+   "openstreetmap": 2245,
+   "areaKm2": 1189.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Galliness Perri",
+   "buildings": 5872,
+   "openstreetmap": 1420,
+   "areaKm2": 594.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Buya Romende",
+   "buildings": 5817,
+   "openstreetmap": 1143,
+   "areaKm2": 432.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Fakunya",
+   "buildings": 5713,
+   "openstreetmap": 1221,
+   "areaKm2": 508.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Lei",
+   "buildings": 5680,
+   "openstreetmap": 2239,
+   "areaKm2": 669.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Diang",
+   "buildings": 5654,
+   "openstreetmap": 923,
+   "areaKm2": 1066.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bagbo",
+   "buildings": 5544,
+   "openstreetmap": 656,
+   "areaKm2": 276.3,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sambaya",
+   "buildings": 5491,
+   "openstreetmap": 750,
+   "areaKm2": 691.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbane",
+   "buildings": 5474,
+   "openstreetmap": 2492,
+   "areaKm2": 371.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sulima",
+   "buildings": 5419,
+   "openstreetmap": 2705,
+   "areaKm2": 1267.6,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bramaia",
+   "buildings": 5361,
+   "openstreetmap": 2045,
+   "areaKm2": 531.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Mandu",
+   "buildings": 5299,
+   "openstreetmap": 4019,
+   "areaKm2": 205.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sittia",
+   "buildings": 5294,
+   "openstreetmap": 788,
+   "areaKm2": 545.0,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Safroko Limba",
+   "buildings": 5217,
+   "openstreetmap": 1448,
+   "areaKm2": 399.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Masungbala",
+   "buildings": 5103,
+   "openstreetmap": 2017,
+   "areaKm2": 308.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Sanda Loko",
+   "buildings": 5092,
+   "openstreetmap": 801,
+   "areaKm2": 600.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Nimiyama",
+   "buildings": 5071,
+   "openstreetmap": 3082,
+   "areaKm2": 357.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Bum",
+   "buildings": 4866,
+   "openstreetmap": 597,
+   "areaKm2": 367.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kissi Kama",
+   "buildings": 4814,
+   "openstreetmap": 3684,
+   "areaKm2": 105.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Central II",
+   "buildings": 4688,
+   "openstreetmap": 4535,
+   "areaKm2": 0.8,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Kandu Leppiama",
+   "buildings": 4658,
+   "openstreetmap": 3088,
+   "areaKm2": 226.4,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbinle Dixing",
+   "buildings": 4653,
+   "openstreetmap": 1936,
+   "areaKm2": 189.9,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Folosaba Dembel",
+   "buildings": 4625,
+   "openstreetmap": 1415,
+   "areaKm2": 777.1,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Dodo",
+   "buildings": 4602,
+   "openstreetmap": 2695,
+   "areaKm2": 325.5,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Gbanti Kamarank",
+   "buildings": 4573,
+   "openstreetmap": 2714,
+   "areaKm2": 397.7,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Lugbu",
+   "buildings": 4536,
+   "openstreetmap": 967,
+   "areaKm2": 254.2,
+   "digitsIfOneArea": 5
+  },
+  {
+   "name": "Malal Mara",
+   "buildings": 4452,
+   "openstreetmap": 680,
+   "areaKm2": 338.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Malema",
+   "buildings": 4358,
+   "openstreetmap": 2652,
+   "areaKm2": 710.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Simbaru",
+   "buildings": 4309,
+   "openstreetmap": 2262,
+   "areaKm2": 270.8,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Tambakha",
+   "buildings": 4259,
+   "openstreetmap": 2093,
+   "areaKm2": 2462.6,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kasunko",
+   "buildings": 4246,
+   "openstreetmap": 1246,
+   "areaKm2": 947.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Dembelia - Sink",
+   "buildings": 4151,
+   "openstreetmap": 2267,
+   "areaKm2": 464.1,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Nongoba Bullom",
+   "buildings": 4149,
+   "openstreetmap": 163,
+   "areaKm2": 553.0,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Penguia",
+   "buildings": 4147,
+   "openstreetmap": 2561,
+   "areaKm2": 211.0,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Fiama",
+   "buildings": 4114,
+   "openstreetmap": 1974,
+   "areaKm2": 285.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Malegohun",
+   "buildings": 4090,
+   "openstreetmap": 2494,
+   "areaKm2": 239.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Timdale",
+   "buildings": 3934,
+   "openstreetmap": 26,
+   "areaKm2": 337.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Paki Masabong",
+   "buildings": 3906,
+   "openstreetmap": 1000,
+   "areaKm2": 264.8,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kamara",
+   "buildings": 3769,
+   "openstreetmap": 2075,
+   "areaKm2": 124.0,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kafe Simiria",
+   "buildings": 3729,
+   "openstreetmap": 490,
+   "areaKm2": 576.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "TMS",
+   "buildings": 3693,
+   "openstreetmap": 183,
+   "areaKm2": 299.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Sanda Tendaran",
+   "buildings": 3666,
+   "openstreetmap": 2853,
+   "areaKm2": 359.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Wara Wara Bafod",
+   "buildings": 3610,
+   "openstreetmap": 1633,
+   "areaKm2": 939.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Wandor",
+   "buildings": 3492,
+   "openstreetmap": 2731,
+   "areaKm2": 320.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Sanda Magbolont",
+   "buildings": 3382,
+   "openstreetmap": 2201,
+   "areaKm2": 568.1,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kpeje Bongre",
+   "buildings": 3341,
+   "openstreetmap": 2252,
+   "areaKm2": 180.6,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Sowa",
+   "buildings": 3218,
+   "openstreetmap": 553,
+   "areaKm2": 233.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kongbora",
+   "buildings": 3170,
+   "openstreetmap": 111,
+   "areaKm2": 378.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kpeje West",
+   "buildings": 3087,
+   "openstreetmap": 1454,
+   "areaKm2": 157.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Dasse",
+   "buildings": 3081,
+   "openstreetmap": 275,
+   "areaKm2": 347.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Gorama Kono",
+   "buildings": 2989,
+   "openstreetmap": 1202,
+   "areaKm2": 317.0,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Libeisaygahun",
+   "buildings": 2909,
+   "openstreetmap": 1029,
+   "areaKm2": 417.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Dibia",
+   "buildings": 2887,
+   "openstreetmap": 68,
+   "areaKm2": 185.1,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Niawa Lenga",
+   "buildings": 2878,
+   "openstreetmap": 69,
+   "areaKm2": 241.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kholifa Mabang",
+   "buildings": 2733,
+   "openstreetmap": 633,
+   "areaKm2": 315.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Dea",
+   "buildings": 2624,
+   "openstreetmap": 1506,
+   "areaKm2": 141.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kunike Barina",
+   "buildings": 2615,
+   "openstreetmap": 685,
+   "areaKm2": 416.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Bagbwe(Bagbe)",
+   "buildings": 2533,
+   "openstreetmap": 320,
+   "areaKm2": 232.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kamajei",
+   "buildings": 2523,
+   "openstreetmap": 69,
+   "areaKm2": 447.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Yawei",
+   "buildings": 2494,
+   "openstreetmap": 780,
+   "areaKm2": 195.6,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Gbane Kandor",
+   "buildings": 2356,
+   "openstreetmap": 1722,
+   "areaKm2": 104.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Upper Banta",
+   "buildings": 2354,
+   "openstreetmap": 229,
+   "areaKm2": 194.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Sogbeni",
+   "buildings": 2267,
+   "openstreetmap": 316,
+   "areaKm2": 136.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kpaka",
+   "buildings": 2204,
+   "openstreetmap": 190,
+   "areaKm2": 304.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Wonde",
+   "buildings": 2135,
+   "openstreetmap": 152,
+   "areaKm2": 268.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Komboya",
+   "buildings": 2058,
+   "openstreetmap": 1112,
+   "areaKm2": 247.6,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Magbaimba Ndorh",
+   "buildings": 2051,
+   "openstreetmap": 795,
+   "areaKm2": 344.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kpanda Kemo",
+   "buildings": 1979,
+   "openstreetmap": 9,
+   "areaKm2": 165.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kwamebai Krim",
+   "buildings": 1972,
+   "openstreetmap": 148,
+   "areaKm2": 287.4,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Niawa",
+   "buildings": 1960,
+   "openstreetmap": 1148,
+   "areaKm2": 248.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Mono Sakrim",
+   "buildings": 1800,
+   "openstreetmap": 225,
+   "areaKm2": 263.2,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Bendu-Cha",
+   "buildings": 1780,
+   "openstreetmap": 33,
+   "areaKm2": 234.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Pejeh(Futa peje",
+   "buildings": 1706,
+   "openstreetmap": 391,
+   "areaKm2": 133.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Gbo",
+   "buildings": 1705,
+   "openstreetmap": 446,
+   "areaKm2": 190.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Kowa",
+   "buildings": 1705,
+   "openstreetmap": 50,
+   "areaKm2": 221.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Mafindor",
+   "buildings": 1699,
+   "openstreetmap": 1254,
+   "areaKm2": 61.6,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Selenga",
+   "buildings": 1607,
+   "openstreetmap": 0,
+   "areaKm2": 96.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Bonthe Urban",
+   "buildings": 1573,
+   "openstreetmap": 1266,
+   "areaKm2": 15.1,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Yawbeko",
+   "buildings": 1562,
+   "openstreetmap": 11,
+   "areaKm2": 193.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Yakemu Kpukumu",
+   "buildings": 1552,
+   "openstreetmap": 28,
+   "areaKm2": 181.5,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Panga krim",
+   "buildings": 1529,
+   "openstreetmap": 30,
+   "areaKm2": 82.3,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Badjia",
+   "buildings": 1433,
+   "openstreetmap": 676,
+   "areaKm2": 192.9,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Dema",
+   "buildings": 1348,
+   "openstreetmap": 149,
+   "areaKm2": 87.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Nomo",
+   "buildings": 1319,
+   "openstreetmap": 755,
+   "areaKm2": 351.7,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Toli",
+   "buildings": 732,
+   "openstreetmap": 290,
+   "areaKm2": 104.8,
+   "digitsIfOneArea": 4
+  },
+  {
+   "name": "Langrama",
+   "buildings": 717,
+   "openstreetmap": 529,
+   "areaKm2": 54.1,
+   "digitsIfOneArea": 4
+  }
+ ],
+ "buildingsOutsideDistricts": 21059,
+ "plusCodeBlocks": {
+  "national": {
+   "blocks": 110611,
+   "structuresPerBlock50_90_99_999": [
+    2.0,
+    37.0,
+    184.0,
+    456.4
+   ],
+   "max": 845,
+   "blocksOver200": 901
+  },
+  "capitalUnits": {
+   "blocks": 1025,
+   "unitsPerBlock50_90_99_999": [
+    167.0,
+    356.0,
+    632.3,
+    797.6
+   ],
+   "max": 828,
+   "blocksOver200": 399
+  }
+ },
+ "compoundsCapital": {
+  "denseThresholdPerHa": 70,
+  "joinM": 4,
+  "yardM": 8,
+  "yardMaxPerHa": 25,
+  "structuresByDensityPerHa": {
+   "a<=20": 22655,
+   "b21-40": 69153,
+   "c41-60": 72906,
+   "d61-70": 27984,
+   "e>70": 49764
+  },
+  "enclosuresNational": {
+   "wall": 331,
+   "retaining_wall": 5,
+   "fence": 87
+  },
+  "enclosuresWithBuildings": 70,
+  "structuresInEnclosures": 233,
+  "structuresPerEnclosure": {
+   "1": 20,
+   "2": 15,
+   "3": 12,
+   "4": 9,
+   "5": 4,
+   "6": 1,
+   "7": 2,
+   "8": 1,
+   "9": 2,
+   "11": 3,
+   "12": 1
+  },
+  "enclosureAreaM2_25_50_75_90": [
+   650.1,
+   912.4,
+   1295.5,
+   2261.0
+  ],
+  "unitsByRule": {
+   "dense": {
+    "units": 49083,
+    "structures": 49083
+   },
+   "proximity": {
+    "units": 39064,
+    "structures": 92403
+   },
+   "single": {
+    "units": 100743,
+    "structures": 100743
+   },
+   "wall": {
+    "units": 70,
+    "structures": 233
+   }
+  },
+  "structuresPerUnit": {
+   "1": 149846,
+   "2": 28639,
+   "3": 7739,
+   "4": 1983,
+   "5": 512,
+   "6": 241
+  },
+  "gatesNational": {
+   "gate": 127,
+   "nways:entry": 117,
+   "nways:gate": 90,
+   "entrance": 10,
+   "nways:yes": 4,
+   "lift_gate": 4,
+   "nways:lift_gate": 2
+  },
+  "nwaysCompoundsNational": {
+   "site": {
+    "count": 2691,
+    "km2": 19.14
+   },
+   "government": {
+    "count": 80,
+    "km2": 0.09
+   },
+   "police": {
+    "count": 34,
+    "km2": 0.37
+   },
+   "military": {
+    "count": 28,
+    "km2": 17.29
+   },
+   "estate": {
+    "count": 1,
+    "km2": 0.0
+   }
+  }
+ }
+}

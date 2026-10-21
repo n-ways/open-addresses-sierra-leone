@@ -1,0 +1,15 @@
+{
+  "byTile": {
+    "6CV8": 125
+  },
+  "codes": 125,
+  "country": "SL",
+  "credit": "N-Ways Addressing for Sierra Leone, © N-WAYS LIMITED (nways.ng)",
+  "engine": "internal/addressing/sl (SPEC v1.0)",
+  "exported": "2026-10-20T15:54:15Z",
+  "licence": "ODbL 1.0 (LICENSE-DATA)",
+  "sha256": {
+    "6CV8.csv": "69fd27de098965cd935abb991fe82b2d70a4bc4275eb0ac4dcea2ff88fa4adca",
+    "areas.csv": "007834db83ba934229432e5f15206d509d30c3df5bfbef9ec16742522737c4ea"
+  }
+}

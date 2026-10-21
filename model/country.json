@@ -1,0 +1,90 @@
+{
+  "country": "SL",
+  "name": "Sierra Leone",
+  "languages": [
+    "en"
+  ],
+  "alphabet": "23456789CFGHJMPQRVWX",
+  "cellMetres": 3.0,
+  "buildingHeadroom": 2.0,
+  "regionLevel": "first-level division (ISO 3166-2), as in the N-Ways regions table",
+  "regions": 5,
+  "buildings": 1615149,
+  "spotCodeLengths": [
+    7,
+    8
+  ],
+  "buildingCodeLengths": [
+    5
+  ],
+  "regionsToSubdivide": [
+    "SL-E",
+    "SL-N",
+    "SL-NW",
+    "SL-S"
+  ],
+  "spoken": {
+    "en": {
+      "2": "two",
+      "3": "three",
+      "4": "four",
+      "5": "five",
+      "6": "six",
+      "7": "seven",
+      "8": "eight",
+      "9": "nine",
+      "C": "see",
+      "F": "eff",
+      "G": "gee",
+      "H": "aitch",
+      "J": "jay",
+      "M": "em",
+      "P": "pee",
+      "Q": "cue",
+      "R": "ar",
+      "V": "vee",
+      "W": "double-u",
+      "X": "ex"
+    }
+  },
+  "existing": {
+    "system": "No postcode. UPU format (2002 sheet): name, house number + street, locality, FREETOWN, SIERRA LEONE (e.g. '7A Ross Road, Cline, FREETOWN'). Street names and house numbers exist in central Freetown and larger towns; elsewhere people use landmarks, junctions and community names.",
+    "status": "None in practical use. No national digital address or postcode system was found as of 2026-10-17: the UPU sheet and Wikipedia's postcode list say Sierra Leone has no postal codes; the Ministry of Communications, NCRA (civil registration/ID) and MoICE sites mention no addressing system. The 2026 Population and Housing Census (countdown began 13 Oct 2026) and the October 2026 redistricting may produce new locality data later.",
+    "openData": "None found. OpenStreetMap is the main open source for street names (ODbL); house-number coverage was not counted (Overpass unreachable at the time of the count).",
+    "openAlgorithm": "Not applicable (no code system).",
+    "terms": "Not applicable.",
+    "recommendation": "Use coordinates plus Plus Codes (Open Location Code, Apache-2.0) as the shareable code, OSM street/community names, and landmark descriptions. Re-check yearly for a national addressing launch.",
+    "sources": [
+      {
+        "url": "https://www.upu.int/UPU/media/upu/PostalEntitiesFiles/addressingUnit/sleEn.pdf",
+        "kind": "official",
+        "note": "UPU addressing sheet, Sierra Leone, 07/2002: example '7A Ross Road Cline, FREETOWN'; contact Sierra Leone Postal Services Ltd, GPO, Siaka Stevens Street"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/List_of_postal_codes",
+        "kind": "wikipedia",
+        "note": "'Sierra Leone | SL | no codes'"
+      },
+      {
+        "url": "https://ncra.gov.sl",
+        "kind": "official",
+        "note": "NCRA site (2026-10-17): ID cards, NIN, data sharing with SLRSA; no addressing"
+      },
+      {
+        "url": "https://moice.gov.sl/statistics-sierra-leone-explains-census-process-to-falaba-residents/",
+        "kind": "official",
+        "note": "2026 census: enumeration from 2 December 2026"
+      },
+      {
+        "url": "https://github.com/google/open-location-code",
+        "kind": "other",
+        "note": "Plus Codes, Apache-2.0"
+      }
+    ]
+  },
+  "sources": {
+    "regions": "N-Ways regions (OpenStreetMap administrative boundaries, ODbL)",
+    "buildings": "OpenStreetMap (ODbL); Google Open Buildings (CC BY 4.0) and Microsoft building footprints (ODbL) via Overture Maps",
+    "existing": "N-Ways country research (docs/existing-systems.md)"
+  }
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.cache/
+.DS_Store
+.env
+.env.*
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite.importing*
+/data/
+/out/

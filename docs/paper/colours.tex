@@ -1,0 +1,13 @@
+% Sierra Leone: green, white and blue, the national flag's stripes from top to bottom.
+\definecolor{flagA}{HTML}{1EB53A}
+\definecolor{flagB}{HTML}{FFFFFF}
+\definecolor{flagC}{HTML}{0072C6}
+\definecolor{paperink}{HTML}{0B4F8A}
+\definecolor{paperaccent}{HTML}{1EB53A}
+\newcommand{\flagband}{\begin{tikzpicture}[remember picture,overlay]
+  \fill[flagA] (0,0) rectangle (\paperwidth,-2.2mm);
+  \fill[flagB] (0,-2.2mm) rectangle (\paperwidth,-4.4mm);
+  \fill[flagC] (0,-4.4mm) rectangle (\paperwidth,-6.6mm);
+  \draw[black!25,line width=0.2pt] (0,-6.6mm) -- (\paperwidth,-6.6mm);
+\end{tikzpicture}}
+\newcommand{\papershort}{\iflanguage{french}{Adressage N-Ways pour la Sierra Leone}{N-Ways Addressing for Sierra Leone}}

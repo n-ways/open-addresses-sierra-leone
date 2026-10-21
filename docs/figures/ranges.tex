@@ -1,0 +1,30 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}[x=0.145cm, y=1cm]
+\pgfplotstableread{ranges.dat}\ranges
+\pgfplotstablegetrowsof{\ranges}\pgfmathtruncatemacro{\last}{\pgfplotsretval-1}
+\foreach \i in {0,...,\last}{
+  \pgfplotstablegetelem{\i}{row}\of\ranges \pgfmathtruncatemacro{\r}{\pgfplotsretval}
+  \pgfplotstablegetelem{\i}{u0}\of\ranges \pgfmathtruncatemacro{\a}{\pgfplotsretval}
+  \pgfplotstablegetelem{\i}{u1}\of\ranges \pgfmathtruncatemacro{\b}{\pgfplotsretval}
+  \pgfplotstablegetelem{\i}{kind}\of\ranges \pgfmathtruncatemacro{\k}{\pgfplotsretval}
+  \ifcase\k \def\c{ink!85}\or \def\c{green!70!black}\or \def\c{black!12}\fi
+  \fill[\c, draw=white, line width=0.6pt] (\a,-1.3*\r) rectangle (\b,-1.3*\r+0.6);
+}
+\foreach \r/\name/\lo/\hi/\note in {
+  0/Moyamba/10000/99999/{\T{5 places, 5,313 compounds: 14 units of 1,000}{5 lieux, 5\,313 concessions : 14 unités de 1\,000}},
+  1/Madina/10000/99999/{\T{28 places, 5,029 compounds: 31 units of 1,000}{28 lieux, 5\,029 concessions : 31 unités de 1\,000}},
+  2/Masorie/100/999/{\T{3 places, 236 compounds: 48 units of 10}{3 lieux, 236 concessions : 48 unités de 10}}}{
+  \node[anchor=east, font=\small\bfseries, text=ink] at (-1,-1.3*\r+0.3) {\name};
+  \node[anchor=north west, font=\scriptsize, inner sep=1pt] at (0,-1.3*\r) {\lo};
+  \node[anchor=north east, font=\scriptsize, inner sep=1pt] at (90,-1.3*\r) {\hi};
+  \node[anchor=north, font=\scriptsize, text=black!70, inner sep=1pt] at (45,-1.3*\r) {\note};
+}
+\node[font=\scriptsize, text=black!65] at (57,0.3) {\T{spare 24000--99999}{réserve 24000--99999}};
+\node[font=\scriptsize, text=black!65] at (60.5,-1.0) {\T{spare 41000--99999}{réserve 41000--99999}};
+\node[font=\scriptsize, text=black!65] at (69,-2.3) {\T{spare 580--999}{réserve 580--999}};
+\node[font=\tiny, text=white] at (6.5,0.3) {12000--20999};
+\node[font=\tiny, text=white] at (23.5,-2.3) {200--469};
+\end{tikzpicture}
+\end{document}

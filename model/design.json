@@ -1,0 +1,918 @@
+{
+ "country": "SL",
+ "name": "Sierra Leone",
+ "version": "1.0",
+ "status": "issued",
+ "date": "2026-10-20",
+ "rule": "Government addresses first: where a government body already has addresses, N-Ways uses its data and creates nothing new; N-Ways codes only where nothing official exists.",
+ "criteria": [
+  "0. Government addresses first: in Freetown City Council's area the FCC Plus Code is the address, shown exactly as FCC writes it",
+  "1. Easy to remember and effortless to get: a community or town name people already use + a short number, unique in Sierra Leone on its own (same-named areas share one national range); the app shows \"Your home code\" without being asked",
+  "2. Same grid as Freetown City Council: every spot code is a Plus Code; the gate's Plus Code is on every record and plate",
+  "3. No dependence on administrative boundaries (the 2017 reorganisation and the redistricting approved in 2025): areas and towns are N-Ways-frozen names and points",
+  "4. Building and door level: every compound, gate, structure, flat and shop",
+  "5. Stable: codes never move or get reused; regrouping never changes an issued code",
+  "6. Open and offline; privacy: codes describe places, never people"
+ ],
+ "codes": {
+  "compound": {
+   "remembered": "<plate name> <number>",
+   "issuedIn": "outside official coverage only",
+   "example": "Moyamba 17216",
+   "digits": "3–5 (no leading zero): the length of the name's national range; grouped 482 / 27 16 / 172 16",
+   "plate": "<plate name> <grouped number> · <gate Plus Code, short, with town>; the official area name in small type",
+   "plateExample": "Moyamba 157 27 · 5H68+3V Moyamba",
+   "machine": "SL-<area id 5 digits>-<number>",
+   "machineExample": "SL-03606-17216",
+   "uniqueness": "name + number unique in Sierra Leone on its own: all areas with the same normalised name share one national range, the number falls in exactly one area's block; no town, district, comma or position needed"
+  },
+  "structure": {
+   "form": "<compound>.<index>",
+   "example": "Moyamba 17216.2"
+  },
+  "unit": {
+   "form": "<structure>/<index>",
+   "example": "Moyamba 17216.2/3"
+  },
+  "spot": {
+   "form": "Open Location Code, short form + reference town",
+   "example": "FQQ6+9G Freetown",
+   "full": "6CW8FQQ6+9G",
+   "note": "identical to the Plus Codes FCC uses"
+  }
+ },
+ "official": {
+  "coverage": {
+   "freetown": {
+    "body": "Freetown City Council (and any council later created from its area)",
+    "extent": "Western Area Urban (geoBoundaries SLE ADM2)",
+    "address": "FCC Plus Code for the property, verbatim; street address where it exists",
+    "nwaysIssues": "N-Ways codes beside FCC's Plus Code, which is shown first; compounds, gates, structures, profiles"
+   },
+   "others": "any council found to address properties is added the same way (Bo, Kenema, Makeni, Koidu not verified)"
+  },
+  "import": [
+   "FCC agreement for address fields only (Plus Code, location; property ID and footprint if FCC agrees); outside the public repo if terms require",
+   "residents: Plus Code typed from the FCC document + photo; accepted only if its cell lies on the compound footprint or within one cell"
+  ],
+  "display": "verbatim with the body name: \"FCC Plus Code: FQR7+HX Freetown\"; N-Ways layers beside in words; property IDs never public; unknown FCC code -> gate Plus Code labelled as a location",
+  "fcc": {
+   "propertyId": "stored only with FCC agreement",
+   "plusCode": "as FCC printed it",
+   "example": "FQR7+HX (17 Wallace Johnson Street)"
+  },
+  "postcode": "none exists (UPU, SALPOST)"
+ },
+ "areas": {
+  "what": "named address areas, frozen at first issue, each named after a community, town or village people already use; no administrative parent",
+  "never cross": "the Sierra Leone River estuary (Freetown peninsula vs Lungi/Bullom shore), the Sherbro estuary and island, the Mano/Moa/Sewa/Rokel rivers where no bridge joins both banks",
+  "seeds": {
+   "primary": [
+    "city",
+    "town",
+    "suburb",
+    "quarter",
+    "village"
+   ],
+   "secondary": [
+    "neighbourhood",
+    "hamlet",
+    "locality",
+    "isolated_dwelling"
+   ],
+   "source": "OpenStreetMap place=* nodes (Freetown communities mapped by residents and SLURC/YMCA mappers), N-Ways gazetteer, names confirmed by residents"
+  },
+  "build": [
+   "assign each compound to the nearest primary place within 4 km, else the nearest secondary place within 15 km",
+   "split an area over 4,500 compounds among the neighbourhoods/hamlets inside it (Freetown wards are not used: they change)",
+   "fold an area under 20 compounds into its nearest neighbour",
+   "keep the name people use even where other areas share it (same-named areas share one national range: names); the code carries the area's plate name (names.plate), at most 12 characters and 2 words; a digit in a name is written as a word (\"Koya Town 2\" -> \"Koya Two\"), so the number is always last",
+   "freeze area polygons and ids"
+  ],
+  "digits": "the length of the area's name range (names.range); sized alone an area would need the smallest d ≥ 3 with 9×10^(d−1) ≥ 2 × compounds",
+  "stats": "model/name-ranges.json, model/stats/register.json, registry/areas.csv"
+ },
+ "names": {
+  "rule": "the remembered code (plate name + number) is unique nationally on its own: every area whose PLATE name normalises to the same key draws its numbers from one national range for that name, split into frozen blocks, one per area, with spare units for future areas of the name",
+  "normalise": {
+   "language": "English and Krio spellings",
+   "steps": [
+    "Unicode NFKD, accents removed, casefold",
+    "apostrophes removed; - _ . , / ( ) become spaces",
+    "words folded: tong→town, kru→kroo, saint→st, mount→mt, &→and, one…ten→1…10, ii→2, iii→3",
+    "leading \"the\" dropped",
+    "all spaces removed"
+   ],
+   "examples": {
+    "kasasi": [
+     "Ka-Sasi",
+     "Kasasi"
+    ],
+    "moribatown": [
+     "Moriba Town",
+     "Moribatown",
+     "Moriba Tong"
+    ],
+    "krootown": [
+     "Kru Town",
+     "Kroo Town"
+    ],
+    "koyatown2": [
+     "Koya Town 2",
+     "Koya Town Two",
+     "Koya Town II"
+    ]
+   },
+   "distinct": [
+    "Kissy ≠ Kissy Town",
+    "Looking Town ≠ Lookin Town"
+   ],
+   "engine": "sl_address.name_key",
+   "frozen": "a fold added later never merges two names that already have blocks"
+  },
+  "range": {
+   "numbers": "10^(d−1) … 10^d − 1 (no leading zero)",
+   "units": 90,
+   "unitSize": "10^(d−2): 10 / 100 / 1,000 numbers for 3 / 4 / 5 digits",
+   "block": "max(1, ceil(2 × compounds / unit size)) whole units per area (half the block free for new houses)",
+   "order": "area seeds along the national Hilbert curve, ties by area id; packed from the bottom",
+   "spare": "at least 9 units (10%) unallocated at the top of every name's range",
+   "digits": "smallest d in 3..5 with Σ blocks + 9 ≤ 90",
+   "maxDigits": 5
+  },
+  "decode": "name_key(name) → name record; the number's length selects the range; the block holding the number is the one area; a number in the spare or no block is no address; never decoded by position or context",
+  "frozen": [
+   "blocks never move, shrink or get renumbered",
+   "a new area with an existing name (or a full block) takes the next whole units from the name's spare",
+   "spare exhausted → the name opens an extension range of d+1 digits (own 90 units and spare); numbers of different lengths never collide",
+   "beyond 5 digits → the new area takes one of the name's listed qualifiers"
+  ],
+  "qualified": {
+   "rule": "only for a name whose areas together do not fit in 5 digits: split once before first issue into established names people already say (a quarter or section name in use), each with its own range; listed here and never changed",
+   "list": []
+  },
+  "nameId": "4 digits, national, frozen at issue (3,706 plate names)",
+  "officialArea": "FCC's area takes blocks like every other area; FCC's Plus Code is shown first there",
+  "examples": [
+   {
+    "code": "Looking Town 133 16",
+    "area": "Looking Town (Western Area Rural)",
+    "block": "13000–13999"
+   },
+   {
+    "code": "Looking Town 153 16",
+    "area": "Looking Town (Freetown): the same plate name, another block",
+    "block": "14000–18999"
+   },
+   {
+    "code": "Moyamba 157 27",
+    "area": "Moyamba town (Moyamba District)",
+    "block": "12000–20999"
+   },
+   {
+    "code": "Moyamba 216 15",
+    "area": "Moyamba village (Bombali District)",
+    "block": "21000–21999"
+   },
+   {
+    "code": "Masorie 150",
+    "area": "officially Masorie Community (Western Area Rural); plate name Masorie",
+    "block": "100–199"
+   },
+   {
+    "code": "Masorie 315",
+    "area": "Masorie village (Tonkolili District), about 42 km away: the same plate name, another block",
+    "block": "200–469"
+   }
+  ],
+  "measured": {
+   "issuingAreas": 5086,
+   "names": 3627,
+   "repeatedNames": 581,
+   "areasWithRepeatedNames": 2040,
+   "compoundsInRepeatedNames": 431342,
+   "repeatedNamesByAreaCount": {
+    "2": 313,
+    "3": 110,
+    "4": 52,
+    "5": 29,
+    "6": 21,
+    "7": 17,
+    "8": 8,
+    "9": 5,
+    "10": 7,
+    "11": 3,
+    "12": 1,
+    "13": 4,
+    "14": 3,
+    "16": 2,
+    "17": 1,
+    "21": 1,
+    "23": 2,
+    "24": 1,
+    "28": 1
+   },
+   "largestSharedRange": {
+    "names": [
+     "Kpetema"
+    ],
+    "areas": 7,
+    "compounds": 10116,
+    "digits": 5
+   },
+   "namesByDigits": {
+    "3": 3040,
+    "4": 561,
+    "5": 26
+   },
+   "areasByDigits": {
+    "3": 3537,
+    "4": 1384,
+    "5": 165
+   },
+   "compoundsByDigits": {
+    "3": 339259,
+    "4": 600676,
+    "5": 148848
+   },
+   "areasByDigitsPerAreaRule": {
+    "3": 4576,
+    "4": 498,
+    "5": 12
+   },
+   "areasWhoseLengthChanged": 1074,
+   "basis": "plate names (model/name-ranges.json)",
+   "beforePlateNames": {
+    "names": 3661,
+    "repeatedNames": 569,
+    "areasWithRepeatedNames": 1994,
+    "namesByDigits": {
+     "3": 3069,
+     "4": 567,
+     "5": 25
+    },
+    "areasByDigits": {
+     "3": 3556,
+     "4": 1378,
+     "5": 152
+    },
+    "compoundsByDigits": {
+     "3": 342861,
+     "4": 602773,
+     "5": 143149
+    }
+   }
+  },
+  "mostRepeated": [
+   {
+    "names": [
+     "Madina"
+    ],
+    "areas": 28,
+    "compounds": 4555,
+    "digits": 5
+   },
+   {
+    "names": [
+     "Baoma"
+    ],
+    "areas": 24,
+    "compounds": 7458,
+    "digits": 5
+   },
+   {
+    "names": [
+     "Sembehun"
+    ],
+    "areas": 23,
+    "compounds": 3421,
+    "digits": 4
+   },
+   {
+    "names": [
+     "Nyandehun"
+    ],
+    "areas": 22,
+    "compounds": 3600,
+    "digits": 5
+   },
+   {
+    "names": [
+     "Taninahun"
+    ],
+    "areas": 20,
+    "compounds": 2951,
+    "digits": 4
+   }
+  ],
+  "register": "model/name-ranges.json (tools/name_ranges.py), frozen at issue; engine/data/register.json and registry/areas.csv carry it",
+  "plate": {
+   "rule": "every address area has two names: the official name (from the map or the council list, printed small on cards and plates, never required) and the plate name, the one said and typed in the code",
+   "limit": {
+    "maxCharacters": 12,
+    "maxWords": 2,
+    "count": "every character of the NFC form: letters, spaces, hyphens and apostrophes, an accented letter is one",
+    "words": "parts between spaces or hyphens, not counting of / the / and / on / at",
+    "digits": "none (the number is always last); a digit in a name is written as a word"
+   },
+   "engine": "engine/reference/plate_names.py (the shared rule) and sl_address.plate_name_ok / check_plate_name: the engine refuses a code or plate whose name is over the limit",
+   "derivation": "tools/name_ranges.py, language en (English and Krio names, with Temne, Mende, Limba ... words)",
+   "steps": [
+    "spelling: \", Sierra Leone\" and a leading * dropped; spaced dashes joined (\"Tombo - Banka\" -> \"Tombo-Banka\"); names typed in capitals written in title case; a bracketed Roman numeral kept as a word (\"Kemedugu (II)\" -> \"Kemedugu II\"); digits written as words (\"Badasuma 2\" -> \"Badasuma Two\")",
+    "always dropped: Community, Comm, Estate, Area, text in other brackets",
+    "Town, Village, Ville: dropped only at the end of a name that is over the limit (\"Adonkia Village\" -> \"Adonkia\"); kept wherever the name fits, because many names are said whole (Allen Town, Congo Town, Murray Town; Kissy Town is not Kissy)",
+    "if still over: the most distinctive run of whole words, dropping only landmark words (Junction, Wharf, Street, Corner, Quarry, Line, Mosque ...: \"Gbangbatoke Junction\" -> \"Gbangbatoke\")",
+    "never automatic: dropping a place word, a person's name, a qualifier (Upper, Lower, New, Old, Small) or a number; a short form that is the name of another area (\"Moyamba Junction\" is not Moyamba) or of a well-known town (avoid list); a short form that is not a place name alone (\"Police\"); these go to the council"
+   ],
+   "avoid": "district headquarters and big towns, the 31 reference towns, every area mapped as place=town or city, and the neighbouring countries and their capitals; the area's own town (within 5 km) is allowed",
+   "known": {
+    "rule": "a documented short form people already say, with its source",
+    "list": []
+   },
+   "council": "needsCouncilChoice areas carry up to 3 candidates and a reason; the first candidate that keeps every qualifier and is not a well-known town is used provisionally so that the area can be numbered, else the cleaned name (over the limit until the council chooses). The district or city council, with the chiefdom, confirms or chooses the plate name; the area's numbers never change",
+   "aliases": "the official name's key decodes to the plate name when it belongs to exactly one plate name and is no plate name itself; otherwise it is not an alias (listed in model/name-ranges.json -> plates.droppedAliases)",
+   "fields": "registry/areas.csv: plate_name, official_name, needs_council_choice; model/name-ranges.json: plateRule (as-is, cleaned, distinctive, known, council), plateCandidates, plateReason, plateSource",
+   "measured": {
+    "issuingAreas": 5086,
+    "officialOverLimit": {
+     "areas": 225,
+     "over12Characters": 196,
+     "over2Words": 50,
+     "withDigits": 35
+    },
+    "byRule": {
+     "as-is": 4851,
+     "cleaned": 83,
+     "council": 136,
+     "distinctive": 16
+    },
+    "needsCouncilChoice": 136,
+    "stillOverLimit": 36,
+    "aliases": 169,
+    "longestCode": {
+     "code": "Eastern Police Barracks 1001",
+     "characters": 28,
+     "said": "Eastern Police Barracks 10 01",
+     "needsCouncilChoice": true
+    },
+    "longestCodeNotFlagged": {
+     "code": "Torkpoi Town 1001",
+     "characters": 17,
+     "said": "Torkpoi Town 10 01",
+     "needsCouncilChoice": false
+    },
+    "longestCodeBefore": {
+     "code": "Connaught Hospital Community 1001",
+     "characters": 33,
+     "said": "Connaught Hospital Community 10 01",
+     "needsCouncilChoice": false
+    }
+   },
+   "examples": [
+    {
+     "official": "Gbangbatoke Junction",
+     "plate": "Gbangbatoke"
+    },
+    {
+     "official": "Connaught Hospital Community",
+     "plate": "Connaught"
+    },
+    {
+     "official": "Adonkia Village",
+     "plate": "Adonkia"
+    },
+    {
+     "official": "Bumbuna Town, Sierra Leone",
+     "plate": "Bumbuna Town"
+    },
+    {
+     "official": "Badasuma 2",
+     "plate": "Badasuma Two"
+    },
+    {
+     "official": "Allen Town",
+     "plate": "Allen Town"
+    },
+    {
+     "official": "Blama Massaquoi",
+     "plate": "council: Massaquoi | Blama"
+    }
+   ]
+  }
+ },
+ "numbering": {
+  "order": "one Hilbert curve (order 16) over a fixed national frame [6.85, −13.35, 10.05, −10.20], by compound anchor (gate)",
+  "spacing": "inside the area's block [lo, hi]: number_i = lo + i×step + step div 2, step = (hi − lo + 1) div N",
+  "later": "free number halfway between curve neighbours inside the block; a full block takes a further block from the name's spare; never renumber"
+ },
+ "checkDigit": {
+  "algorithm": "Damm",
+  "over": "name id (4 digits) + number",
+  "binds": "name, number and area: the area is the one whose block holds the number, so a check is valid for exactly one area",
+  "why": "every area of one name shares the prefix, so Damm rejects every single wrong digit and every neighbour swap, including typos that land in another same-named area (582,688 sampled on the plate-name register, 0 accepted); writing the area id into the check would accept 61,619 of them",
+  "printed": "never: for systems only (machine records and the API)"
+ },
+ "referenceTowns": {
+  "rule": "fixed points, never moved, only added; a spot code is shortened (first 4 characters dropped) against the nearest town within 0.4° on both axes; recovery exact within 0.5°",
+  "coverage": "the 31 towns reach every building location in Sierra Leone (checked against all Google/Microsoft footprint cells at 0.01°)",
+  "towns": [
+   {
+    "name": "Alikalia",
+    "lat": 9.1531,
+    "lng": -11.388,
+    "aliases": []
+   },
+   {
+    "name": "Bafodia",
+    "lat": 9.6828,
+    "lng": -11.7341,
+    "aliases": []
+   },
+   {
+    "name": "Bendugu",
+    "lat": 9.53383,
+    "lng": -10.95684,
+    "aliases": []
+   },
+   {
+    "name": "Bo",
+    "lat": 7.96206,
+    "lng": -11.73665,
+    "aliases": []
+   },
+   {
+    "name": "Bonthe",
+    "lat": 7.52727,
+    "lng": -12.50196,
+    "aliases": []
+   },
+   {
+    "name": "Daru",
+    "lat": 7.99152,
+    "lng": -10.84592,
+    "aliases": []
+   },
+   {
+    "name": "Falaba",
+    "lat": 9.85546,
+    "lng": -11.32114,
+    "aliases": []
+   },
+   {
+    "name": "Freetown",
+    "lat": 8.479,
+    "lng": -13.26795,
+    "aliases": [
+     "Fritong"
+    ]
+   },
+   {
+    "name": "Kabala",
+    "lat": 9.58765,
+    "lng": -11.55006,
+    "aliases": []
+   },
+   {
+    "name": "Kailahun",
+    "lat": 8.28203,
+    "lng": -10.5552,
+    "aliases": []
+   },
+   {
+    "name": "Kainkordu",
+    "lat": 8.619,
+    "lng": -10.7204,
+    "aliases": []
+   },
+   {
+    "name": "Kamakwie",
+    "lat": 9.4963,
+    "lng": -12.24125,
+    "aliases": []
+   },
+   {
+    "name": "Kamaron",
+    "lat": 9.3459,
+    "lng": -10.8722,
+    "aliases": []
+   },
+   {
+    "name": "Kambia",
+    "lat": 9.12507,
+    "lng": -12.91934,
+    "aliases": []
+   },
+   {
+    "name": "Kenema",
+    "lat": 7.88597,
+    "lng": -11.18638,
+    "aliases": []
+   },
+   {
+    "name": "Koidu",
+    "lat": 8.64228,
+    "lng": -10.97163,
+    "aliases": [
+     "Sefadu",
+     "Koidu Town",
+     "Kono"
+    ]
+   },
+   {
+    "name": "Lungi",
+    "lat": 8.64022,
+    "lng": -13.22656,
+    "aliases": [
+     "Lungi Town",
+     "Lungi-Town"
+    ]
+   },
+   {
+    "name": "Lunsar",
+    "lat": 8.68706,
+    "lng": -12.54374,
+    "aliases": []
+   },
+   {
+    "name": "Magburaka",
+    "lat": 8.72282,
+    "lng": -11.94919,
+    "aliases": []
+   },
+   {
+    "name": "Makeni",
+    "lat": 8.88819,
+    "lng": -12.04419,
+    "aliases": []
+   },
+   {
+    "name": "Masingbi",
+    "lat": 8.6376,
+    "lng": -11.4737,
+    "aliases": []
+   },
+   {
+    "name": "Mattru Jong",
+    "lat": 7.60712,
+    "lng": -12.17996,
+    "aliases": []
+   },
+   {
+    "name": "Mile 91",
+    "lat": 8.4666,
+    "lng": -12.21436,
+    "aliases": []
+   },
+   {
+    "name": "Moyamba",
+    "lat": 8.15935,
+    "lng": -12.43139,
+    "aliases": []
+   },
+   {
+    "name": "Port Loko",
+    "lat": 8.76467,
+    "lng": -12.78542,
+    "aliases": []
+   },
+   {
+    "name": "Pujehun",
+    "lat": 7.35661,
+    "lng": -11.72128,
+    "aliases": []
+   },
+   {
+    "name": "Sainya",
+    "lat": 9.83755,
+    "lng": -12.3786,
+    "aliases": []
+   },
+   {
+    "name": "Shenge",
+    "lat": 7.9113,
+    "lng": -12.9543,
+    "aliases": []
+   },
+   {
+    "name": "Sullima",
+    "lat": 6.96942,
+    "lng": -11.57531,
+    "aliases": []
+   },
+   {
+    "name": "Waterloo",
+    "lat": 8.33898,
+    "lng": -13.06957,
+    "aliases": []
+   },
+   {
+    "name": "Zimmi",
+    "lat": 7.31234,
+    "lng": -11.31032,
+    "aliases": []
+   }
+  ]
+ },
+ "compounds": {
+  "rules": [
+   {
+    "rule": "confirmed plot (Add my home, survey plan)",
+    "confidence": 0.9
+   },
+   {
+    "rule": "mapped enclosure: closed OSM barrier=wall|fence|hedge",
+    "confidence": 0.8
+   },
+   {
+    "rule": "estate / institutional compound (N-Ways compounds): parent of compounds inside"
+   },
+   {
+    "rule": "dense hectare: more than 70 structures per 100 m cell: no grouping (Kroo Bay, Susan's Bay, Mabella, Colbot, hillside settlements)",
+    "confidence": 0.6
+   },
+   {
+    "rule": "village yard: where a hectare has ≤ 25 structures, satellite < 30 m² joins the nearest principal ≥ 30 m² (≥ 2×) within 8 m",
+    "confidence": 0.4
+   },
+   {
+    "rule": "town proximity: the same within 4 m elsewhere",
+    "confidence": 0.45
+   },
+   {
+    "rule": "single structure",
+    "confidence": 0.5
+   }
+  ],
+  "mainStructure": "largest footprint unless people confirm another",
+  "gate": "confirmed gate > mapped gate/entrance within 3 m of the enclosure > where the nearest road or footpath meets the enclosure > main structure centroid",
+  "regrouping": "never changes an issued code (merge keeps the gate compound's code, others become aliases; split keeps it on the part with the original gate)",
+  "wallShops": "a shop in the front wall with its own street door is its own structure with its own entrance"
+ },
+ "profile": {
+  "attribute": {
+   "type": "object",
+   "fields": {
+    "value": "any",
+    "source": [
+     "person",
+     "partner",
+     "osm",
+     "ml",
+     "places",
+     "inferred"
+    ],
+    "confidence": "0..1",
+    "confirmed": "date or null"
+   }
+  },
+  "structure": {
+   "use": "taxonomy key",
+   "footprintM2": "number",
+   "perimeterM": "number",
+   "heightM": "number",
+   "heightSource": [
+    "osm:height",
+    "osm:building:levels",
+    "ml:h"
+   ],
+   "floors": "integer",
+   "floorAreaM2": "footprint × floors",
+   "material": "OSM building:material",
+   "roof": "OSM roof:material",
+   "entrances": [
+    {
+     "position": "[lat, lng]",
+     "plusCode": "gate Plus Code",
+     "kind": [
+      "gate",
+      "door",
+      "shop-door",
+      "service"
+     ],
+     "confirmed": "date"
+    }
+   ],
+   "name": "businesses and public buildings only",
+   "status": [
+    "in-use",
+    "under-construction",
+    "uncompleted-shell",
+    "ruin",
+    "demolished"
+   ],
+   "fccPropertyId": "only with FCC agreement"
+  },
+  "compound": {
+   "kind": [
+    "one-household",
+    "multi-household",
+    "family-yard",
+    "mixed",
+    "commercial",
+    "public",
+    "unknown"
+   ],
+   "plotM2": "number or null",
+   "structures": "integer",
+   "floorAreaM2": "sum",
+   "gates": "list",
+   "households": "count only",
+   "estate": "parent id or null",
+   "rule": "grouping rule",
+   "confidence": "0..1"
+  },
+  "public": [
+   "codes",
+   "outlines",
+   "gates and their Plus Codes",
+   "use class",
+   "size",
+   "business and public names",
+   "confirmed dates"
+  ],
+  "private": [
+   "who lives anywhere",
+   "phone numbers",
+   "household composition beyond a count",
+   "gate photos",
+   "survey-plan images",
+   "FCC rates data"
+  ],
+  "taxonomy": {
+   "residential": [
+    "residential.block_house",
+    "residential.pan_body",
+    "residential.mud_house",
+    "residential.hut",
+    "residential.storey",
+    "residential.unspecified"
+   ],
+   "mixed_use": [
+    "mixed_use.shop_house"
+   ],
+   "commercial": [
+    "commercial.shop",
+    "commercial.market",
+    "commercial.office",
+    "commercial.warehouse"
+   ],
+   "public": [
+    "government",
+    "education",
+    "health",
+    "religious",
+    "public.culture"
+   ],
+   "industrial": [
+    "industrial.general",
+    "industrial.mining",
+    "industrial.fishing"
+   ],
+   "other": [
+    "hospitality",
+    "transport",
+    "agricultural",
+    "ancillary",
+    "under_construction",
+    "ruin",
+    "unknown"
+   ]
+  },
+  "inference": [
+   {
+    "signal": "person confirmation",
+    "confidence": 0.95
+   },
+   {
+    "signal": "partner record (e.g. FCC property use)",
+    "confidence": 0.9
+   },
+   {
+    "signal": "OSM amenity/shop/office/tourism on the outline",
+    "confidence": 0.85
+   },
+   {
+    "signal": "OSM building=* other than yes",
+    "confidence": 0.85
+   },
+   {
+    "signal": "one N-Ways place inside the footprint",
+    "confidence": 0.7
+   },
+   {
+    "signal": "OSM building:material=mud",
+    "confidence": 0.6
+   },
+   {
+    "signal": "footprint < 6 m² → ancillary; ≥ 2,000 m² → commercial.warehouse",
+    "confidence": 0.35
+   },
+   {
+    "signal": "nothing → unknown",
+    "confidence": 0
+   }
+  ],
+  "stats": "model/profile-stats.json"
+ },
+ "addMyHome": {
+  "steps": [
+   "stand at the gate: GPS averaged ≥ 10 s + one gate photo (its Plus Code is shown at once)",
+   "outline: tap corners | walk the boundary with ARKit/ARCore anchored by averaged GPS | import survey-plan beacons (Sierra Leone 1968 / UTM 28N EPSG:2161 or 29N EPSG:2162, 1924 War Office grid, or WGS 84 — chosen, never assumed)",
+   "describe: households (count), structures, floors, use",
+   "provisional code at once: next free number in the area",
+   "confirmed by arrivals/deliveries at the gate, new imagery/footprints, or 30 days without dispute"
+  ],
+  "checks": [
+   "gate on the outline ±3 m",
+   "closed loop",
+   "20 m² – 5 ha",
+   "GPS vs AR agreement",
+   "a point within 3 m of an issued compound, or an outline overlapping more than half of one, gets that compound's code: nothing new is issued",
+   "in dense hectares: single structures unless walled"
+  ],
+  "statement": "A code is an address, not a land title or survey plan. Land matters go to the Ministry of Lands, Housing and Country Planning / National Land Commission.",
+  "offline": "Plus Code at once; compound code on next connection"
+ },
+ "getting": {
+  "app": "shown as \"Your home code\" (FCC Plus Code in Freetown, N-Ways code elsewhere) as soon as home is known (saved home, or a tap on This is my home at the gate); one tap to share by WhatsApp or SMS link",
+  "plates": "the plate name and the number in groups, and the gate's Plus Code; in Freetown, FCC's Plus Code first",
+  "partners": "couriers, banks, utilities, FCC look codes up by location (API)",
+  "laterOption": "an SMS lookup service (not planned now)"
+ },
+ "spoken": {
+  "digits": "said digit by digit or in pairs in Krio/English (482 = \"fo-et-tu\"; 27 16 = \"twenti-sevin, sikstin\" or \"tu-sevin, wan-siks\"); Mende and Temne speakers commonly use Krio/English numerals for phone numbers — to field-test",
+  "plusCodeLetters": {
+   "C": "see",
+   "F": "ef",
+   "G": "jee",
+   "H": "ech",
+   "J": "jay",
+   "M": "em",
+   "P": "pee",
+   "Q": "kyu",
+   "R": "ar",
+   "V": "vee",
+   "W": "dobul-yu",
+   "X": "eks",
+   "note": "Krio letter names follow English; to field-test"
+  }
+ },
+ "sources": {
+  "buildings": "OSM (ODbL); Google Open Buildings (CC BY 4.0); Microsoft (ODbL)",
+  "chiefdoms": "geoBoundaries SLE ADM3 (CC BY 4.0), statistics only",
+  "places": "OSM place=* nodes; N-Ways places",
+  "grid": "Open Location Code (Apache-2.0)"
+ },
+ "stats": {
+  "profile": {
+   "sources": {
+    "osm": 839977,
+    "ml": 789299
+   },
+   "heightSource": {
+    "none": 838854,
+    "ml:h": 789299,
+    "osm:building:levels": 1066,
+    "osm:height": 57
+   }
+  },
+  "capitalCompounds": {
+   "dense": {
+    "units": 49083,
+    "structures": 49083
+   },
+   "proximity": {
+    "units": 39064,
+    "structures": 92403
+   },
+   "single": {
+    "units": 100743,
+    "structures": 100743
+   },
+   "wall": {
+    "units": 70,
+    "structures": 233
+   }
+  },
+  "areas": {
+   "areas": 5240,
+   "areasByDigits": {
+    "3": 4611,
+    "4": 616,
+    "5": 13
+   },
+   "compoundsByDigits": {
+    "3": 476397,
+    "4": 710822,
+    "5": 81976
+   },
+   "compoundsPerArea": {
+    "p10": 28,
+    "p50": 83,
+    "p90": 551,
+    "p99": 2943,
+    "max": 9844
+   }
+  }
+ }
+}

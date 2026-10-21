@@ -1,0 +1,24 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=11.5cm, height=11.5cm, axis equal image, xmin=0, xmax=20, ymin=0, ymax=20,
+  xtick={0.5,1.5,...,19.5}, ytick={0.5,1.5,...,19.5},
+  xticklabels={2,3,4,5,6,7,8,9,C,F,G,H,J,M,P,Q,R,V,W,X}, yticklabels={2,3,4,5,6,7,8,9,C,F,G,H,J,M,P,Q,R,V,W,X},
+  xtick pos=bottom, ytick pos=left, major tick length=0pt,
+  xlabel={\T{10th character (longitude), cells of 0.000125\textdegree}{10\textsuperscript{e} caractère (longitude), cellules de 0,000125\textdegree}},
+  ylabel={\T{9th character (latitude)}{9\textsuperscript{e} caractère (latitude)}},
+  title={\T{Plus Code cell 6CW95H68, about 275 m across, Moyamba}{Cellule Plus Code 6CW95H68, environ 275 m de côté, Moyamba}},
+  title style={font=\small\bfseries, text=ink}]
+  \fill[green!25] (axis cs:17,1) rectangle (axis cs:18,2);
+  \pgfplotsinvokeforeach{1,...,19}{
+    \draw[blue!25, line width=0.3pt] (axis cs:#1,0) -- (axis cs:#1,20);
+    \draw[blue!25, line width=0.3pt] (axis cs:0,#1) -- (axis cs:20,#1);
+  }
+  \addplot[grey, line width=0.6pt, unbounded coords=jump] table[x=cx, y=cy] {spot-cell.dat};
+  \addplot[only marks, mark=*, mark size=1.4pt, ink, unbounded coords=discard] table[x=cx, y=cy] {spot-cell.dat};
+  \node[anchor=east, font=\scriptsize\bfseries, fill=white, draw=black!40, inner sep=1.5pt] (lab) at (axis cs:16.6,0.55) {Moyamba 15727 = 5H68+3V};
+  \draw[-latex, black!70, thick] (lab.east) -- (axis cs:17.5,1.75);
+\end{axis}
+\end{tikzpicture}
+\end{document}

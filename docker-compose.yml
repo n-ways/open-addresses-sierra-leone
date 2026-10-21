@@ -1,0 +1,23 @@
+# The whole deployment:  docker compose up -d
+# Read-only by default. Set ISSUE_KEYS only on the deployment designated as the
+# country's issuer (server/README.md, "One issuer per country").
+services:
+  registry:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    image: nways-sl-registry
+    restart: unless-stopped
+    # Published on the host's loopback only: put the TLS proxy of server/README.md
+    # in front of it. Set HOST_PORT to use another host port.
+    ports:
+      - "127.0.0.1:${HOST_PORT:-8080}:8080"
+    environment:
+      ISSUE_KEYS: ${ISSUE_KEYS:-}
+      ISSUE_PER_DAY: ${ISSUE_PER_DAY:-5}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+    volumes:
+      - registry-data:/data
+
+volumes:
+  registry-data:

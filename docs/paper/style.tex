@@ -1,0 +1,58 @@
+% Typesetting of the paper: fonts, the country's colours, title page, running heads.
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{LibertinusSerif}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Semibold,ItalicFont=*-Italic,BoldItalicFont=*-SemiboldItalic]
+\setsansfont{LibertinusSans}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic]
+\setmathfont{LibertinusMath-Regular.otf}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{needspace}
+\usepackage{caption}
+\captionsetup{font=small,labelfont={sf,bf,color=paperink},labelsep=period}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+\titleformat{\section}{\sffamily\Large\bfseries\color{paperink}}{\thesection}{0.8em}{}
+% unnumbered sections (data availability, acknowledgements, references) set the running head too
+\newcommand{\unnumberedmark}[1]{\markboth{#1}{}#1}
+\titleformat{name=\section,numberless}{\sffamily\Large\bfseries\color{paperink}}{}{0pt}{\unnumberedmark}
+\titleformat{\subsection}{\sffamily\large\bfseries\color{paperink}}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries}{\thesubsubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus 1ex}{1ex}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancyhead[L]{\sffamily\footnotesize\color{paperink}\papershort}
+% running head: the first section that begins on the page, else the one in force
+\fancyhead[R]{\sffamily\footnotesize\firstleftmark}
+\fancyfoot[C]{\sffamily\footnotesize\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\quad #1}{}}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\sffamily\footnotesize\thepage}}
+% the flag band across the top of every page
+\AddToShipoutPictureBG{\AtPageUpperLeft{\flagband}}
+\AtBeginDocument{\hypersetup{colorlinks=true,linkcolor=paperink,citecolor=paperink,urlcolor=paperink}}
+% floats: figures and tables may sit with text on a page, and float pages must be well filled
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{3}
+\makeatletter\def\fps@figure{htbp}\makeatother
+% a compact table of contents that fits on one page
+\AtBeginDocument{\addtocontents{toc}{\protect\small}}
+% long file names in monospace may move to the next line rather than run into the margin
+\setlength{\emergencystretch}{3em}
+% French: caption labels in the same style as the English edition and "Tableau" in full; the
+% thin spaces before high punctuation come from the text itself (and french.lua for the
+% bibliography), so that none is added inside identifiers such as ISO 19160-1:2015
+\ifdefined\frenchsetup \frenchsetup{SmallCapsFigTabCaptions=false,AutoSpacePunctuation=false}\fi
+\ifdefined\captionsfrench \addto\captionsfrench{\renewcommand{\tablename}{Tableau}}\fi

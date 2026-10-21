@@ -1,0 +1,127 @@
+[
+  {
+    "key": "EA",
+    "iso": "SL-E",
+    "name": "Eastern Province",
+    "nameFr": "Province de l'Est",
+    "nameLocal": "Eastern Province",
+    "wikidata": "Q1050497",
+    "areaKm2": 15737.2,
+    "box": [
+      -11.60248,
+      7.33871,
+      -10.27168,
+      9.0723
+    ],
+    "buildings": {
+      "openstreetmap": 231395,
+      "ml": 128085,
+      "total": 359480
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "NO",
+    "iso": "SL-N",
+    "name": "Northern Province, Sierra Leone",
+    "nameFr": "Province du Nord",
+    "nameLocal": "Northern Province",
+    "wikidata": "Q912359",
+    "areaKm2": 22520.1,
+    "box": [
+      -12.64795,
+      8.23684,
+      -10.57347,
+      9.99997
+    ],
+    "buildings": {
+      "openstreetmap": 94933,
+      "ml": 142583,
+      "total": 237516
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "NW",
+    "iso": "SL-NW",
+    "name": "North West Province, Sierra Leone",
+    "nameFr": "Province du Nord-Ouest",
+    "nameLocal": "North Western Province",
+    "wikidata": "Q43371075",
+    "areaKm2": 13492.0,
+    "box": [
+      -13.30207,
+      8.25979,
+      -11.87306,
+      9.94018
+    ],
+    "buildings": {
+      "openstreetmap": 91696,
+      "ml": 128450,
+      "total": 220146
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "SO",
+    "iso": "SL-S",
+    "name": "Southern Province, Sierra Leone",
+    "nameFr": "Province du Sud",
+    "nameLocal": "Southern Province",
+    "wikidata": "Q772185",
+    "areaKm2": 20166.2,
+    "box": [
+      -13.06983,
+      6.92159,
+      -11.14119,
+      8.49833
+    ],
+    "buildings": {
+      "openstreetmap": 94726,
+      "ml": 222243,
+      "total": 316969
+    },
+    "codeLength": {
+      "spot": 8,
+      "building": 5
+    },
+    "needsSubdivision": true
+  },
+  {
+    "key": "WE",
+    "iso": "SL-W",
+    "name": "Western Area",
+    "nameFr": "Zone de l'Ouest",
+    "nameLocal": "Western Area",
+    "wikidata": "Q1050475",
+    "areaKm2": 694.4,
+    "box": [
+      -13.29851,
+      8.09303,
+      -12.91369,
+      8.49962
+    ],
+    "buildings": {
+      "openstreetmap": 318174,
+      "ml": 162864,
+      "total": 481038
+    },
+    "codeLength": {
+      "spot": 7,
+      "building": 5
+    },
+    "needsSubdivision": false
+  }
+]

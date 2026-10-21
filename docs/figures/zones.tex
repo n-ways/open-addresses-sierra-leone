@@ -1,0 +1,27 @@
+\documentclass[tikz,border=2mm]{standalone}
+\input{common.tikz}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=12cm, axis equal image, xmin=-13.7, xmax=-10.0, ymin=6.75, ymax=10.15,
+  xtick={-14,-13,...,-10}, ytick={6,7,...,10},
+  xticklabel={$\pgfmathprintnumber{\tick}^\circ$}, yticklabel={$\pgfmathprintnumber{\tick}^\circ$},
+  xlabel={\T{Longitude}{Longitude}}, ylabel={\T{Latitude}{Latitude}},
+  grid=major, grid style={blue!45, line width=0.6pt}, axis on top, xtick pos=bottom, ytick pos=left, clip=true]
+  \addplot[fill=green!10, draw=green!60!black, line width=0.6pt] table[x=lng,y=lat] {outline.dat} -- cycle;
+  \addplot[only marks, mark=*, mark size=1.3pt, ink] table[x=lng,y=lat] {towns.dat};
+  \addplot[only marks, mark=*, mark size=1.3pt, ink] table[x=lng,y=lat] {towns-above.dat};
+  \addplot[only marks, mark=none, nodes near coords={\scriptsize\pgfplotspointmeta}, point meta=explicit symbolic,
+    every node near coord/.style={anchor=west, xshift=1.5pt, inner sep=0.6pt, fill=green!10, text=ink!80!black, font=\tiny}]
+    table[x=lng,y=lat,meta=name] {towns.dat};
+  \addplot[only marks, mark=none, nodes near coords={\scriptsize\pgfplotspointmeta}, point meta=explicit symbolic,
+    every node near coord/.style={anchor=south, yshift=1.5pt, inner sep=0.6pt, fill=green!10, text=ink!80!black, font=\tiny}]
+    table[x=lng,y=lat,meta=name] {towns-above.dat};
+  \addplot[only marks, mark=none, nodes near coords={\pgfplotspointmeta}, point meta=explicit symbolic,
+    every node near coord/.style={anchor=center, inner sep=1pt, yshift=4pt, font=\scriptsize\bfseries, text=blue!80!black}]
+    table[x=lng,y=lat,meta=zone] {zones.dat};
+  \addplot[only marks, mark=none, nodes near coords={\pgfplotspointmeta}, point meta=explicit symbolic,
+    every node near coord/.style={anchor=center, inner sep=1pt, yshift=-4.5pt, font=\scriptsize, text=blue!70!black}]
+    table[x=lng,y=lat,meta=\T{label}{labelfr}] {zones.dat};
+\end{axis}
+\end{tikzpicture}
+\end{document}
